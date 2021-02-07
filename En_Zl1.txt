@@ -1,0 +1,50 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_8089ED90
+/* 00000 8089ED90 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00004 8089ED94 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00008 8089ED98 03E00008 */  jr      $ra                        
+/* 0000C 8089ED9C 00000000 */  nop
+
+
+glabel func_8089EDA0
+/* 00010 8089EDA0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00014 8089EDA4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00018 8089EDA8 03E00008 */  jr      $ra                        
+/* 0001C 8089EDAC 00000000 */  nop
+
+
+glabel func_8089EDB0
+/* 00020 8089EDB0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00024 8089EDB4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00028 8089EDB8 03E00008 */  jr      $ra                        
+/* 0002C 8089EDBC 00000000 */  nop
+
+
+glabel func_8089EDC0
+/* 00030 8089EDC0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00034 8089EDC4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00038 8089EDC8 03E00008 */  jr      $ra                        
+/* 0003C 8089EDCC 00000000 */  nop
+
+.section .data
+
+D_8089EDD0: .word 0x001B0400, 0x00000019, 0x00190000, 0x00000204
+.word func_8089ED90
+.word func_8089EDA0
+.word func_8089EDB0
+.word func_8089EDC0
+
+.section .rodata
+
+
+
+.section .rodata
+D_8089EDF0:
+.incbin "baserom/En_Zl1", 0x60, 0x00000030

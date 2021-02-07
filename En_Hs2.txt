@@ -1,0 +1,73 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_8098EF60
+/* 00000 8098EF60 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00004 8098EF64 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00008 8098EF68 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 0000C 8098EF6C AFA5001C */  sw      $a1, 0x001C($sp)           
+/* 00010 8098EF70 8FA40018 */  lw      $a0, 0x0018($sp)           
+/* 00014 8098EF74 0C02D9F8 */  jal     func_800B67E0              
+/* 00018 8098EF78 3C053F80 */  lui     $a1, 0x3F80                ## $a1 = 3F800000
+/* 0001C 8098EF7C 8FAF0018 */  lw      $t7, 0x0018($sp)           
+/* 00020 8098EF80 3C0E8099 */  lui     $t6, %hi(func_8098EFAC)    ## $t6 = 80990000
+/* 00024 8098EF84 25CEEFAC */  addiu   $t6, $t6, %lo(func_8098EFAC) ## $t6 = 8098EFAC
+/* 00028 8098EF88 ADEE0394 */  sw      $t6, 0x0394($t7)           ## 00000394
+/* 0002C 8098EF8C 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00030 8098EF90 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00034 8098EF94 03E00008 */  jr      $ra                        
+/* 00038 8098EF98 00000000 */  nop
+
+
+glabel func_8098EF9C
+/* 0003C 8098EF9C AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00040 8098EFA0 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00044 8098EFA4 03E00008 */  jr      $ra                        
+/* 00048 8098EFA8 00000000 */  nop
+
+
+glabel func_8098EFAC
+/* 0004C 8098EFAC AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00050 8098EFB0 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00054 8098EFB4 03E00008 */  jr      $ra                        
+/* 00058 8098EFB8 00000000 */  nop
+
+
+glabel func_8098EFBC
+/* 0005C 8098EFBC 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00060 8098EFC0 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00064 8098EFC4 8C990394 */  lw      $t9, 0x0394($a0)           ## 00000394
+/* 00068 8098EFC8 0320F809 */  jalr    $ra, $t9                   
+/* 0006C 8098EFCC 00000000 */  nop
+/* 00070 8098EFD0 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00074 8098EFD4 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00078 8098EFD8 03E00008 */  jr      $ra                        
+/* 0007C 8098EFDC 00000000 */  nop
+
+
+glabel func_8098EFE0
+/* 00080 8098EFE0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00084 8098EFE4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00088 8098EFE8 03E00008 */  jr      $ra                        
+/* 0008C 8098EFEC 00000000 */  nop
+
+.section .data
+
+D_8098EFF0: .word 0x00E70400, 0x00000009, 0x00010000, 0x00000398
+.word func_8098EF60
+.word func_8098EF9C
+.word func_8098EFBC
+.word func_8098EFE0
+
+.section .rodata
+
+
+
+.section .rodata
+D_8098F010:
+.incbin "baserom/En_Hs2", 0xB0, 0x00000030

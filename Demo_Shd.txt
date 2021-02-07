@@ -1,0 +1,50 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_8092C530
+/* 00000 8092C530 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00004 8092C534 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00008 8092C538 03E00008 */  jr      $ra                        
+/* 0000C 8092C53C 00000000 */  nop
+
+
+glabel func_8092C540
+/* 00010 8092C540 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00014 8092C544 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00018 8092C548 03E00008 */  jr      $ra                        
+/* 0001C 8092C54C 00000000 */  nop
+
+
+glabel func_8092C550
+/* 00020 8092C550 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00024 8092C554 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00028 8092C558 03E00008 */  jr      $ra                        
+/* 0002C 8092C55C 00000000 */  nop
+
+
+glabel func_8092C560
+/* 00030 8092C560 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00034 8092C564 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00038 8092C568 03E00008 */  jr      $ra                        
+/* 0003C 8092C56C 00000000 */  nop
+
+.section .data
+
+D_8092C570: .word 0x00890500, 0x00000030, 0x01530000, 0x000012D0
+.word func_8092C530
+.word func_8092C540
+.word func_8092C550
+.word func_8092C560
+
+.section .rodata
+
+
+
+.section .rodata
+D_8092C590:
+.incbin "baserom/Demo_Shd", 0x60, 0x00000030

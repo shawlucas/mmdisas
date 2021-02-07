@@ -1,0 +1,50 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_80A560C0
+/* 00000 80A560C0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00004 80A560C4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00008 80A560C8 03E00008 */  jr      $ra                        
+/* 0000C 80A560CC 00000000 */  nop
+
+
+glabel func_80A560D0
+/* 00010 80A560D0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00014 80A560D4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00018 80A560D8 03E00008 */  jr      $ra                        
+/* 0001C 80A560DC 00000000 */  nop
+
+
+glabel func_80A560E0
+/* 00020 80A560E0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00024 80A560E4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00028 80A560E8 03E00008 */  jr      $ra                        
+/* 0002C 80A560EC 00000000 */  nop
+
+
+glabel func_80A560F0
+/* 00030 80A560F0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00034 80A560F4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00038 80A560F8 03E00008 */  jr      $ra                        
+/* 0003C 80A560FC 00000000 */  nop
+
+.section .data
+
+D_80A56100: .word 0x016E0500, 0x00005015, 0x000B0000, 0x0000036C
+.word func_80A560C0
+.word func_80A560D0
+.word func_80A560E0
+.word func_80A560F0
+
+.section .rodata
+
+
+
+.section .rodata
+D_80A56120:
+.incbin "baserom/En_Firefly2", 0x60, 0x00000030

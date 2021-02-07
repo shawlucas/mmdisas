@@ -1,0 +1,50 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_80A0C780
+/* 00000 80A0C780 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00004 80A0C784 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00008 80A0C788 03E00008 */  jr      $ra                        
+/* 0000C 80A0C78C 00000000 */  nop
+
+
+glabel func_80A0C790
+/* 00010 80A0C790 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00014 80A0C794 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00018 80A0C798 03E00008 */  jr      $ra                        
+/* 0001C 80A0C79C 00000000 */  nop
+
+
+glabel func_80A0C7A0
+/* 00020 80A0C7A0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00024 80A0C7A4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00028 80A0C7A8 03E00008 */  jr      $ra                        
+/* 0002C 80A0C7AC 00000000 */  nop
+
+
+glabel func_80A0C7B0
+/* 00030 80A0C7B0 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00034 80A0C7B4 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00038 80A0C7B8 03E00008 */  jr      $ra                        
+/* 0003C 80A0C7BC 00000000 */  nop
+
+.section .data
+
+D_80A0C7C0: .word 0x01320400, 0x00000019, 0x00010000, 0x0000061C
+.word func_80A0C780
+.word func_80A0C790
+.word func_80A0C7A0
+.word func_80A0C7B0
+
+.section .rodata
+
+
+
+.section .rodata
+D_80A0C7E0:
+.incbin "baserom/En_Boj_05", 0x60, 0x00000030

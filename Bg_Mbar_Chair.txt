@@ -1,0 +1,87 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_80B7E930
+/* 00000 80B7E930 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00004 80B7E934 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00008 80B7E938 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 0000C 80B7E93C AFA5001C */  sw      $a1, 0x001C($sp)           
+/* 00010 80B7E940 3C0580B8 */  lui     $a1, %hi(D_80B7EA20)       ## $a1 = 80B80000
+/* 00014 80B7E944 24A5EA20 */  addiu   $a1, $a1, %lo(D_80B7EA20)  ## $a1 = 80B7EA20
+/* 00018 80B7E948 0C03FEB7 */  jal     func_800FFADC              
+/* 0001C 80B7E94C 8FA40018 */  lw      $a0, 0x0018($sp)           
+/* 00020 80B7E950 8FA40018 */  lw      $a0, 0x0018($sp)           
+/* 00024 80B7E954 0C032B84 */  jal     func_800CAE10              
+/* 00028 80B7E958 00002825 */  or      $a1, $zero, $zero          ## $a1 = 00000000
+/* 0002C 80B7E95C 3C060600 */  lui     $a2, 0x0600                ## $a2 = 06000000
+/* 00030 80B7E960 24C619B4 */  addiu   $a2, $a2, 0x19B4           ## $a2 = 060019B4
+/* 00034 80B7E964 8FA4001C */  lw      $a0, 0x001C($sp)           
+/* 00038 80B7E968 0C032B8D */  jal     func_800CAE34              
+/* 0003C 80B7E96C 8FA50018 */  lw      $a1, 0x0018($sp)           
+/* 00040 80B7E970 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00044 80B7E974 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00048 80B7E978 03E00008 */  jr      $ra                        
+/* 0004C 80B7E97C 00000000 */  nop
+
+
+glabel func_80B7E980
+/* 00050 80B7E980 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00054 80B7E984 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00058 80B7E988 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 0005C 80B7E98C 00A03825 */  or      $a3, $a1, $zero            ## $a3 = 00000000
+/* 00060 80B7E990 8FAE0018 */  lw      $t6, 0x0018($sp)           
+/* 00064 80B7E994 00E02025 */  or      $a0, $a3, $zero            ## $a0 = 00000000
+/* 00068 80B7E998 24E50880 */  addiu   $a1, $a3, 0x0880           ## $a1 = 00000880
+/* 0006C 80B7E99C 0C031933 */  jal     func_800C64CC              
+/* 00070 80B7E9A0 8DC60144 */  lw      $a2, 0x0144($t6)           ## 00000144
+/* 00074 80B7E9A4 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00078 80B7E9A8 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 0007C 80B7E9AC 03E00008 */  jr      $ra                        
+/* 00080 80B7E9B0 00000000 */  nop
+
+
+glabel func_80B7E9B4
+/* 00084 80B7E9B4 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00088 80B7E9B8 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 0008C 80B7E9BC 03E00008 */  jr      $ra                        
+/* 00090 80B7E9C0 00000000 */  nop
+
+
+glabel func_80B7E9C4
+/* 00094 80B7E9C4 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00098 80B7E9C8 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 0009C 80B7E9CC AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 000A0 80B7E9D0 00A03025 */  or      $a2, $a1, $zero            ## $a2 = 00000000
+/* 000A4 80B7E9D4 3C050600 */  lui     $a1, 0x0600                ## $a1 = 06000000
+/* 000A8 80B7E9D8 24A50288 */  addiu   $a1, $a1, 0x0288           ## $a1 = 06000288
+/* 000AC 80B7E9DC 0C02F7F0 */  jal     func_800BDFC0              
+/* 000B0 80B7E9E0 00C02025 */  or      $a0, $a2, $zero            ## $a0 = 00000000
+/* 000B4 80B7E9E4 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 000B8 80B7E9E8 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 000BC 80B7E9EC 03E00008 */  jr      $ra                        
+/* 000C0 80B7E9F0 00000000 */  nop
+/* 000C4 80B7E9F4 00000000 */  nop
+/* 000C8 80B7E9F8 00000000 */  nop
+/* 000CC 80B7E9FC 00000000 */  nop
+
+.section .data
+
+D_80B7EA00: .word 0x02170100, 0x00000000, 0x02020000, 0x0000015C
+.word func_80B7E930
+.word func_80B7E980
+.word func_80B7E9B4
+.word func_80B7E9C4
+D_80B7EA20: .word 0xB0FC07D0, 0xB100003C, 0xB1040050, 0x48580064
+
+.section .rodata
+
+
+
+.section .rodata
+D_80B7EA30:
+.incbin "baserom/Bg_Mbar_Chair", 0x100, 0x00000030

@@ -1,0 +1,80 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_80C18120
+/* 00000 80C18120 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00004 80C18124 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00008 80C18128 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 0000C 80C1812C AFA5001C */  sw      $a1, 0x001C($sp)           
+/* 00010 80C18130 3C0580C2 */  lui     $a1, %hi(D_80C18200)       ## $a1 = 80C20000
+/* 00014 80C18134 24A58200 */  addiu   $a1, $a1, %lo(D_80C18200)  ## $a1 = 80C18200
+/* 00018 80C18138 0C03FEB7 */  jal     func_800FFADC              
+/* 0001C 80C1813C 8FA40018 */  lw      $a0, 0x0018($sp)           
+/* 00020 80C18140 3C01457A */  lui     $at, 0x457A                ## $at = 457A0000
+/* 00024 80C18144 8FA40018 */  lw      $a0, 0x0018($sp)           
+/* 00028 80C18148 44812000 */  mtc1    $at, $f4                   ## $f4 = 4000.00
+/* 0002C 80C1814C 24050001 */  addiu   $a1, $zero, 0x0001         ## $a1 = 00000001
+/* 00030 80C18150 0C032B84 */  jal     func_800CAE10              
+/* 00034 80C18154 E48400FC */  swc1    $f4, 0x00FC($a0)           ## 000000FC
+/* 00038 80C18158 3C060600 */  lui     $a2, 0x0600                ## $a2 = 06000000
+/* 0003C 80C1815C 24C614D8 */  addiu   $a2, $a2, 0x14D8           ## $a2 = 060014D8
+/* 00040 80C18160 8FA4001C */  lw      $a0, 0x001C($sp)           
+/* 00044 80C18164 0C032B8D */  jal     func_800CAE34              
+/* 00048 80C18168 8FA50018 */  lw      $a1, 0x0018($sp)           
+/* 0004C 80C1816C 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00050 80C18170 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00054 80C18174 03E00008 */  jr      $ra                        
+/* 00058 80C18178 00000000 */  nop
+
+
+glabel func_80C1817C
+/* 0005C 80C1817C 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00060 80C18180 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00064 80C18184 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 00068 80C18188 00A03825 */  or      $a3, $a1, $zero            ## $a3 = 00000000
+/* 0006C 80C1818C 8FAE0018 */  lw      $t6, 0x0018($sp)           
+/* 00070 80C18190 00E02025 */  or      $a0, $a3, $zero            ## $a0 = 00000000
+/* 00074 80C18194 24E50880 */  addiu   $a1, $a3, 0x0880           ## $a1 = 00000880
+/* 00078 80C18198 0C031933 */  jal     func_800C64CC              
+/* 0007C 80C1819C 8DC60144 */  lw      $a2, 0x0144($t6)           ## 00000144
+/* 00080 80C181A0 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00084 80C181A4 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00088 80C181A8 03E00008 */  jr      $ra                        
+/* 0008C 80C181AC 00000000 */  nop
+
+
+glabel func_80C181B0
+/* 00090 80C181B0 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00094 80C181B4 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00098 80C181B8 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 0009C 80C181BC 00A03025 */  or      $a2, $a1, $zero            ## $a2 = 00000000
+/* 000A0 80C181C0 3C050600 */  lui     $a1, 0x0600                ## $a1 = 06000000
+/* 000A4 80C181C4 24A50228 */  addiu   $a1, $a1, 0x0228           ## $a1 = 06000228
+/* 000A8 80C181C8 0C02F7F0 */  jal     func_800BDFC0              
+/* 000AC 80C181CC 00C02025 */  or      $a0, $a2, $zero            ## $a0 = 00000000
+/* 000B0 80C181D0 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 000B4 80C181D4 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 000B8 80C181D8 03E00008 */  jr      $ra                        
+/* 000BC 80C181DC 00000000 */  nop
+
+.section .data
+
+D_80C181E0: .word 0x02970100, 0x00000000, 0x027F0000, 0x00000160
+.word func_80C18120
+.word func_80C1817C
+.word 0x800BDFB0
+.word func_80C181B0
+D_80C18200: .word 0x48580064, 0x00000000, 0x00000000, 0x00000000
+
+.section .rodata
+
+
+
+.section .rodata
+D_80C18210:
+.incbin "baserom/Bg_Lbfshot", 0xF0, 0x00000030

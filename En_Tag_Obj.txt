@@ -1,0 +1,72 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_80B12870
+/* 00000 80B12870 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00004 80B12874 AC800194 */  sw      $zero, 0x0194($a0)         ## 00000194
+/* 00008 80B12878 03E00008 */  jr      $ra                        
+/* 0000C 80B1287C 00000000 */  nop
+
+
+glabel func_80B12880
+/* 00010 80B12880 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00014 80B12884 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00018 80B12888 03E00008 */  jr      $ra                        
+/* 0001C 80B1288C 00000000 */  nop
+
+
+glabel func_80B12890
+/* 00020 80B12890 27BDFFC8 */  addiu   $sp, $sp, 0xFFC8           ## $sp = FFFFFFC8
+/* 00024 80B12894 AFB00030 */  sw      $s0, 0x0030($sp)           
+/* 00028 80B12898 00808025 */  or      $s0, $a0, $zero            ## $s0 = 00000000
+/* 0002C 80B1289C AFBF0034 */  sw      $ra, 0x0034($sp)           
+/* 00030 80B128A0 8E0E0194 */  lw      $t6, 0x0194($s0)           ## 00000194
+/* 00034 80B128A4 24A41CA0 */  addiu   $a0, $a1, 0x1CA0           ## $a0 = 00001CA0
+/* 00038 80B128A8 55C0000F */  bnel    $t6, $zero, .L80B128E8     
+/* 0003C 80B128AC 8FBF0034 */  lw      $ra, 0x0034($sp)           
+/* 00040 80B128B0 C6040028 */  lwc1    $f4, 0x0028($s0)           ## 00000028
+/* 00044 80B128B4 8E070024 */  lw      $a3, 0x0024($s0)           ## 00000024
+/* 00048 80B128B8 24060205 */  addiu   $a2, $zero, 0x0205         ## $a2 = 00000205
+/* 0004C 80B128BC E7A40010 */  swc1    $f4, 0x0010($sp)           
+/* 00050 80B128C0 C606002C */  lwc1    $f6, 0x002C($s0)           ## 0000002C
+/* 00054 80B128C4 AFA00024 */  sw      $zero, 0x0024($sp)         
+/* 00058 80B128C8 AFA00020 */  sw      $zero, 0x0020($sp)         
+/* 0005C 80B128CC AFA0001C */  sw      $zero, 0x001C($sp)         
+/* 00060 80B128D0 AFA00018 */  sw      $zero, 0x0018($sp)         
+/* 00064 80B128D4 0C02EB18 */  jal     func_800BAC60              
+/* 00068 80B128D8 E7A60014 */  swc1    $f6, 0x0014($sp)           
+/* 0006C 80B128DC 240F0001 */  addiu   $t7, $zero, 0x0001         ## $t7 = 00000001
+/* 00070 80B128E0 AE0F0194 */  sw      $t7, 0x0194($s0)           ## 00000194
+/* 00074 80B128E4 8FBF0034 */  lw      $ra, 0x0034($sp)           
+.L80B128E8:
+/* 00078 80B128E8 8FB00030 */  lw      $s0, 0x0030($sp)           
+/* 0007C 80B128EC 27BD0038 */  addiu   $sp, $sp, 0x0038           ## $sp = 00000000
+/* 00080 80B128F0 03E00008 */  jr      $ra                        
+/* 00084 80B128F4 00000000 */  nop
+/* 00088 80B128F8 00000000 */  nop
+/* 0008C 80B128FC 00000000 */  nop
+
+.section .data
+
+.word \
+0x0A000900, 0x20010000, 0x00000000, 0x00000000, \
+0x00000000, 0xF7CFFFFF, 0x00000000, 0x00010000, \
+0x0014001E, 0x00000000, 0x00000000
+D_80B1292C: .word 0x01E10600, 0x00000000, 0x00010000, 0x00000198
+.word func_80B12870
+.word func_80B12880
+.word func_80B12890
+.word 0x00000000, 0x00000000
+
+.section .rodata
+
+
+
+.section .rodata
+D_80B12950:
+.incbin "baserom/En_Tag_Obj", 0xE0, 0x00000030

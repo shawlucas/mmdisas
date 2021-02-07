@@ -1,0 +1,1347 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_80ACE330
+/* 00000 80ACE330 27BDFFC8 */  addiu   $sp, $sp, 0xFFC8           ## $sp = FFFFFFC8
+/* 00004 80ACE334 AFB10018 */  sw      $s1, 0x0018($sp)           
+/* 00008 80ACE338 00808825 */  or      $s1, $a0, $zero            ## $s1 = 00000000
+/* 0000C 80ACE33C AFBF001C */  sw      $ra, 0x001C($sp)           
+/* 00010 80ACE340 AFB00014 */  sw      $s0, 0x0014($sp)           
+/* 00014 80ACE344 AFA5003C */  sw      $a1, 0x003C($sp)           
+/* 00018 80ACE348 8FAE003C */  lw      $t6, 0x003C($sp)           
+/* 0001C 80ACE34C AFA0002C */  sw      $zero, 0x002C($sp)         
+/* 00020 80ACE350 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000000
+/* 00024 80ACE354 24050003 */  addiu   $a1, $zero, 0x0003         ## $a1 = 00000003
+/* 00028 80ACE358 0C032B84 */  jal     func_800CAE10              
+/* 0002C 80ACE35C 8DD01CE4 */  lw      $s0, 0x1CE4($t6)           ## 00001CE4
+/* 00030 80ACE360 3C040600 */  lui     $a0, 0x0600                ## $a0 = 06000000
+/* 00034 80ACE364 248423D4 */  addiu   $a0, $a0, 0x23D4           ## $a0 = 060023D4
+/* 00038 80ACE368 0C032559 */  jal     func_800C9564              
+/* 0003C 80ACE36C 27A5002C */  addiu   $a1, $sp, 0x002C           ## $a1 = FFFFFFF4
+/* 00040 80ACE370 8FA4003C */  lw      $a0, 0x003C($sp)           
+/* 00044 80ACE374 02203025 */  or      $a2, $s1, $zero            ## $a2 = 00000000
+/* 00048 80ACE378 8FA7002C */  lw      $a3, 0x002C($sp)           
+/* 0004C 80ACE37C 0C031862 */  jal     func_800C6188              
+/* 00050 80ACE380 24850880 */  addiu   $a1, $a0, 0x0880           ## $a1 = 00000880
+/* 00054 80ACE384 3C053DCC */  lui     $a1, 0x3DCC                ## $a1 = 3DCC0000
+/* 00058 80ACE388 AE220144 */  sw      $v0, 0x0144($s1)           ## 00000144
+/* 0005C 80ACE38C 34A5CCCD */  ori     $a1, $a1, 0xCCCD           ## $a1 = 3DCCCCCD
+/* 00060 80ACE390 0C02D9F8 */  jal     func_800B67E0              
+/* 00064 80ACE394 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000000
+/* 00068 80ACE398 26250160 */  addiu   $a1, $s1, 0x0160           ## $a1 = 00000160
+/* 0006C 80ACE39C AFA50020 */  sw      $a1, 0x0020($sp)           
+/* 00070 80ACE3A0 0C038855 */  jal     func_800E2154              
+/* 00074 80ACE3A4 8FA4003C */  lw      $a0, 0x003C($sp)           
+/* 00078 80ACE3A8 3C0780AD */  lui     $a3, %hi(D_80ACF610)       ## $a3 = 80AD0000
+/* 0007C 80ACE3AC 8FA50020 */  lw      $a1, 0x0020($sp)           
+/* 00080 80ACE3B0 24E7F610 */  addiu   $a3, $a3, %lo(D_80ACF610)  ## $a3 = 80ACF610
+/* 00084 80ACE3B4 8FA4003C */  lw      $a0, 0x003C($sp)           
+/* 00088 80ACE3B8 0C03887D */  jal     func_800E21F4              
+/* 0008C 80ACE3BC 02203025 */  or      $a2, $s1, $zero            ## $a2 = 00000000
+/* 00090 80ACE3C0 240F0014 */  addiu   $t7, $zero, 0x0014         ## $t7 = 00000014
+/* 00094 80ACE3C4 1200000A */  beq     $s0, $zero, .L80ACE3F0     
+/* 00098 80ACE3C8 A62F01AE */  sh      $t7, 0x01AE($s1)           ## 000001AE
+/* 0009C 80ACE3CC 240200B5 */  addiu   $v0, $zero, 0x00B5         ## $v0 = 000000B5
+/* 000A0 80ACE3D0 86180000 */  lh      $t8, 0x0000($s0)           ## 00000000
+.L80ACE3D4:
+/* 000A4 80ACE3D4 54580004 */  bnel    $v0, $t8, .L80ACE3E8       
+/* 000A8 80ACE3D8 8E10012C */  lw      $s0, 0x012C($s0)           ## 0000012C
+/* 000AC 80ACE3DC 10000004 */  beq     $zero, $zero, .L80ACE3F0   
+/* 000B0 80ACE3E0 AE300120 */  sw      $s0, 0x0120($s1)           ## 00000120
+/* 000B4 80ACE3E4 8E10012C */  lw      $s0, 0x012C($s0)           ## 0000012C
+.L80ACE3E8:
+/* 000B8 80ACE3E8 5600FFFA */  bnel    $s0, $zero, .L80ACE3D4     
+/* 000BC 80ACE3EC 86180000 */  lh      $t8, 0x0000($s0)           ## 00000000
+.L80ACE3F0:
+/* 000C0 80ACE3F0 16000005 */  bne     $s0, $zero, .L80ACE408     
+/* 000C4 80ACE3F4 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000000
+/* 000C8 80ACE3F8 0C02D9C3 */  jal     func_800B670C              
+/* 000CC 80ACE3FC 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000000
+/* 000D0 80ACE400 10000016 */  beq     $zero, $zero, .L80ACE45C   
+/* 000D4 80ACE404 8FBF001C */  lw      $ra, 0x001C($sp)           
+.L80ACE408:
+/* 000D8 80ACE408 8E220120 */  lw      $v0, 0x0120($s1)           ## 00000120
+/* 000DC 80ACE40C 24010002 */  addiu   $at, $zero, 0x0002         ## $at = 00000002
+/* 000E0 80ACE410 2408001E */  addiu   $t0, $zero, 0x001E         ## $t0 = 0000001E
+/* 000E4 80ACE414 84590542 */  lh      $t9, 0x0542($v0)           ## 00000542
+/* 000E8 80ACE418 24090011 */  addiu   $t1, $zero, 0x0011         ## $t1 = 00000011
+/* 000EC 80ACE41C 57210005 */  bnel    $t9, $at, .L80ACE434       
+/* 000F0 80ACE420 A62901AE */  sh      $t1, 0x01AE($s1)           ## 000001AE
+/* 000F4 80ACE424 A220018C */  sb      $zero, 0x018C($s1)         ## 0000018C
+/* 000F8 80ACE428 10000008 */  beq     $zero, $zero, .L80ACE44C   
+/* 000FC 80ACE42C A62801AE */  sh      $t0, 0x01AE($s1)           ## 000001AE
+/* 00100 80ACE430 A62901AE */  sh      $t1, 0x01AE($s1)           ## 000001AE
+.L80ACE434:
+/* 00104 80ACE434 8C4A0538 */  lw      $t2, 0x0538($v0)           ## 00000538
+/* 00108 80ACE438 862C001C */  lh      $t4, 0x001C($s1)           ## 0000001C
+/* 0010C 80ACE43C AE2A02F8 */  sw      $t2, 0x02F8($s1)           ## 000002F8
+/* 00110 80ACE440 8C4B0520 */  lw      $t3, 0x0520($v0)           ## 00000520
+/* 00114 80ACE444 AE2C02F0 */  sw      $t4, 0x02F0($s1)           ## 000002F0
+/* 00118 80ACE448 AE2B02F4 */  sw      $t3, 0x02F4($s1)           ## 000002F4
+.L80ACE44C:
+/* 0011C 80ACE44C A6200302 */  sh      $zero, 0x0302($s1)         ## 00000302
+/* 00120 80ACE450 0C2B392D */  jal     func_80ACE4B4              
+/* 00124 80ACE454 A6200304 */  sh      $zero, 0x0304($s1)         ## 00000304
+/* 00128 80ACE458 8FBF001C */  lw      $ra, 0x001C($sp)           
+.L80ACE45C:
+/* 0012C 80ACE45C 8FB00014 */  lw      $s0, 0x0014($sp)           
+/* 00130 80ACE460 8FB10018 */  lw      $s1, 0x0018($sp)           
+/* 00134 80ACE464 03E00008 */  jr      $ra                        
+/* 00138 80ACE468 27BD0038 */  addiu   $sp, $sp, 0x0038           ## $sp = 00000000
+
+
+glabel func_80ACE46C
+/* 0013C 80ACE46C 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00140 80ACE470 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00144 80ACE474 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 00148 80ACE478 00A03825 */  or      $a3, $a1, $zero            ## $a3 = 00000000
+/* 0014C 80ACE47C 8FAE0018 */  lw      $t6, 0x0018($sp)           
+/* 00150 80ACE480 00E02025 */  or      $a0, $a3, $zero            ## $a0 = 00000000
+/* 00154 80ACE484 24E50880 */  addiu   $a1, $a3, 0x0880           ## $a1 = 00000880
+/* 00158 80ACE488 8DC60144 */  lw      $a2, 0x0144($t6)           ## 00000144
+/* 0015C 80ACE48C 0C031933 */  jal     func_800C64CC              
+/* 00160 80ACE490 AFA7001C */  sw      $a3, 0x001C($sp)           
+/* 00164 80ACE494 8FA50018 */  lw      $a1, 0x0018($sp)           
+/* 00168 80ACE498 8FA4001C */  lw      $a0, 0x001C($sp)           
+/* 0016C 80ACE49C 0C038869 */  jal     func_800E21A4              
+/* 00170 80ACE4A0 24A50160 */  addiu   $a1, $a1, 0x0160           ## $a1 = 00000160
+/* 00174 80ACE4A4 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00178 80ACE4A8 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 0017C 80ACE4AC 03E00008 */  jr      $ra                        
+/* 00180 80ACE4B0 00000000 */  nop
+
+
+glabel func_80ACE4B4
+/* 00184 80ACE4B4 3C0E80AD */  lui     $t6, %hi(func_80ACE4C8)    ## $t6 = 80AD0000
+/* 00188 80ACE4B8 25CEE4C8 */  addiu   $t6, $t6, %lo(func_80ACE4C8) ## $t6 = 80ACE4C8
+/* 0018C 80ACE4BC AC8E015C */  sw      $t6, 0x015C($a0)           ## 0000015C
+/* 00190 80ACE4C0 03E00008 */  jr      $ra                        
+/* 00194 80ACE4C4 00000000 */  nop
+
+
+glabel func_80ACE4C8
+/* 00198 80ACE4C8 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 0019C 80ACE4CC AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 001A0 80ACE4D0 AFA5001C */  sw      $a1, 0x001C($sp)           
+/* 001A4 80ACE4D4 8C820120 */  lw      $v0, 0x0120($a0)           ## 00000120
+/* 001A8 80ACE4D8 844E054A */  lh      $t6, 0x054A($v0)           ## 0000054A
+/* 001AC 80ACE4DC 55C00007 */  bnel    $t6, $zero, .L80ACE4FC     
+/* 001B0 80ACE4E0 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 001B4 80ACE4E4 844F0542 */  lh      $t7, 0x0542($v0)           ## 00000542
+/* 001B8 80ACE4E8 55E00004 */  bnel    $t7, $zero, .L80ACE4FC     
+/* 001BC 80ACE4EC 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 001C0 80ACE4F0 0C2B3942 */  jal     func_80ACE508              
+/* 001C4 80ACE4F4 00000000 */  nop
+/* 001C8 80ACE4F8 8FBF0014 */  lw      $ra, 0x0014($sp)           
+.L80ACE4FC:
+/* 001CC 80ACE4FC 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 001D0 80ACE500 03E00008 */  jr      $ra                        
+/* 001D4 80ACE504 00000000 */  nop
+
+
+glabel func_80ACE508
+/* 001D8 80ACE508 3C0E80AD */  lui     $t6, %hi(func_80ACE51C)    ## $t6 = 80AD0000
+/* 001DC 80ACE50C 25CEE51C */  addiu   $t6, $t6, %lo(func_80ACE51C) ## $t6 = 80ACE51C
+/* 001E0 80ACE510 AC8E015C */  sw      $t6, 0x015C($a0)           ## 0000015C
+/* 001E4 80ACE514 03E00008 */  jr      $ra                        
+/* 001E8 80ACE518 00000000 */  nop
+
+
+glabel func_80ACE51C
+/* 001EC 80ACE51C 27BDFFC0 */  addiu   $sp, $sp, 0xFFC0           ## $sp = FFFFFFC0
+/* 001F0 80ACE520 AFB00014 */  sw      $s0, 0x0014($sp)           
+/* 001F4 80ACE524 00808025 */  or      $s0, $a0, $zero            ## $s0 = 00000000
+/* 001F8 80ACE528 AFBF001C */  sw      $ra, 0x001C($sp)           
+/* 001FC 80ACE52C AFB10018 */  sw      $s1, 0x0018($sp)           
+/* 00200 80ACE530 AFA50044 */  sw      $a1, 0x0044($sp)           
+/* 00204 80ACE534 24020006 */  addiu   $v0, $zero, 0x0006         ## $v0 = 00000006
+/* 00208 80ACE538 8E0E0120 */  lw      $t6, 0x0120($s0)           ## 00000120
+/* 0020C 80ACE53C 26110024 */  addiu   $s1, $s0, 0x0024           ## $s1 = 00000024
+/* 00210 80ACE540 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000024
+/* 00214 80ACE544 AFAE003C */  sw      $t6, 0x003C($sp)           
+/* 00218 80ACE548 8E1802F0 */  lw      $t8, 0x02F0($s0)           ## 000002F0
+/* 0021C 80ACE54C 8E0F02F8 */  lw      $t7, 0x02F8($s0)           ## 000002F8
+/* 00220 80ACE550 27A50030 */  addiu   $a1, $sp, 0x0030           ## $a1 = FFFFFFF0
+/* 00224 80ACE554 03020019 */  multu   $t8, $v0                   
+/* 00228 80ACE558 0000C812 */  mflo    $t9                        
+/* 0022C 80ACE55C 01F94021 */  addu    $t0, $t7, $t9              
+/* 00230 80ACE560 85090000 */  lh      $t1, 0x0000($t0)           ## 00000000
+/* 00234 80ACE564 44892000 */  mtc1    $t1, $f4                   ## $f4 = 0.00
+/* 00238 80ACE568 00000000 */  nop
+/* 0023C 80ACE56C 468021A0 */  cvt.s.w $f6, $f4                   
+/* 00240 80ACE570 E7A60030 */  swc1    $f6, 0x0030($sp)           
+/* 00244 80ACE574 8E0B02F0 */  lw      $t3, 0x02F0($s0)           ## 000002F0
+/* 00248 80ACE578 8E0A02F8 */  lw      $t2, 0x02F8($s0)           ## 000002F8
+/* 0024C 80ACE57C 01620019 */  multu   $t3, $v0                   
+/* 00250 80ACE580 00006012 */  mflo    $t4                        
+/* 00254 80ACE584 014C6821 */  addu    $t5, $t2, $t4              
+/* 00258 80ACE588 85AE0002 */  lh      $t6, 0x0002($t5)           ## 00000002
+/* 0025C 80ACE58C 448E4000 */  mtc1    $t6, $f8                   ## $f8 = 0.00
+/* 00260 80ACE590 00000000 */  nop
+/* 00264 80ACE594 468042A0 */  cvt.s.w $f10, $f8                  
+/* 00268 80ACE598 E7AA0034 */  swc1    $f10, 0x0034($sp)          
+/* 0026C 80ACE59C 8E0F02F0 */  lw      $t7, 0x02F0($s0)           ## 000002F0
+/* 00270 80ACE5A0 8E1802F8 */  lw      $t8, 0x02F8($s0)           ## 000002F8
+/* 00274 80ACE5A4 01E20019 */  multu   $t7, $v0                   
+/* 00278 80ACE5A8 0000C812 */  mflo    $t9                        
+/* 0027C 80ACE5AC 03194021 */  addu    $t0, $t8, $t9              
+/* 00280 80ACE5B0 85090004 */  lh      $t1, 0x0004($t0)           ## 00000004
+/* 00284 80ACE5B4 44898000 */  mtc1    $t1, $f16                  ## $f16 = 0.00
+/* 00288 80ACE5B8 00000000 */  nop
+/* 0028C 80ACE5BC 468084A0 */  cvt.s.w $f18, $f16                 
+/* 00290 80ACE5C0 0C03FE4B */  jal     func_800FF92C              
+/* 00294 80ACE5C4 E7B20038 */  swc1    $f18, 0x0038($sp)          
+/* 00298 80ACE5C8 E7A0002C */  swc1    $f0, 0x002C($sp)           
+/* 0029C 80ACE5CC 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000024
+/* 002A0 80ACE5D0 0C03FE98 */  jal     func_800FFA60              
+/* 002A4 80ACE5D4 27A50030 */  addiu   $a1, $sp, 0x0030           ## $a1 = FFFFFFF0
+/* 002A8 80ACE5D8 A6020032 */  sh      $v0, 0x0032($s0)           ## 00000032
+/* 002AC 80ACE5DC 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000024
+/* 002B0 80ACE5E0 0C03FEA5 */  jal     func_800FFA94              
+/* 002B4 80ACE5E4 27A50030 */  addiu   $a1, $sp, 0x0030           ## $a1 = FFFFFFF0
+/* 002B8 80ACE5E8 A6020030 */  sh      $v0, 0x0030($s0)           ## 00000030
+/* 002BC 80ACE5EC 3C014120 */  lui     $at, 0x4120                ## $at = 41200000
+/* 002C0 80ACE5F0 44813000 */  mtc1    $at, $f6                   ## $f6 = 10.00
+/* 002C4 80ACE5F4 C7A4002C */  lwc1    $f4, 0x002C($sp)           
+/* 002C8 80ACE5F8 4606203C */  c.lt.s  $f4, $f6                   
+/* 002CC 80ACE5FC 00000000 */  nop
+/* 002D0 80ACE600 4502000B */  bc1fl   .L80ACE630                 
+/* 002D4 80ACE604 3C014000 */  lui     $at, 0x4000                ## $at = 40000000
+/* 002D8 80ACE608 8E0B02F4 */  lw      $t3, 0x02F4($s0)           ## 000002F4
+/* 002DC 80ACE60C 8E0202F0 */  lw      $v0, 0x02F0($s0)           ## 000002F0
+/* 002E0 80ACE610 256AFFFF */  addiu   $t2, $t3, 0xFFFF           ## $t2 = FFFFFFFF
+/* 002E4 80ACE614 004A082A */  slt     $at, $v0, $t2              
+/* 002E8 80ACE618 10200003 */  beq     $at, $zero, .L80ACE628     
+/* 002EC 80ACE61C 244C0001 */  addiu   $t4, $v0, 0x0001           ## $t4 = 00000001
+/* 002F0 80ACE620 10000002 */  beq     $zero, $zero, .L80ACE62C   
+/* 002F4 80ACE624 AE0C02F0 */  sw      $t4, 0x02F0($s0)           ## 000002F0
+.L80ACE628:
+/* 002F8 80ACE628 AE0002F0 */  sw      $zero, 0x02F0($s0)         ## 000002F0
+.L80ACE62C:
+/* 002FC 80ACE62C 3C014000 */  lui     $at, 0x4000                ## $at = 40000000
+.L80ACE630:
+/* 00300 80ACE630 44814000 */  mtc1    $at, $f8                   ## $f8 = 2.00
+/* 00304 80ACE634 8E050120 */  lw      $a1, 0x0120($s0)           ## 00000120
+/* 00308 80ACE638 02202025 */  or      $a0, $s1, $zero            ## $a0 = 00000024
+/* 0030C 80ACE63C E6080070 */  swc1    $f8, 0x0070($s0)           ## 00000070
+/* 00310 80ACE640 0C03FE98 */  jal     func_800FFA60              
+/* 00314 80ACE644 24A50024 */  addiu   $a1, $a1, 0x0024           ## $a1 = 00000024
+/* 00318 80ACE648 A60200BE */  sh      $v0, 0x00BE($s0)           ## 000000BE
+/* 0031C 80ACE64C 0C02DAA2 */  jal     func_800B6A88              
+/* 00320 80ACE650 02002025 */  or      $a0, $s0, $zero            ## $a0 = 00000000
+/* 00324 80ACE654 8FAD003C */  lw      $t5, 0x003C($sp)           
+/* 00328 80ACE658 85AE054A */  lh      $t6, 0x054A($t5)           ## 0000054A
+/* 0032C 80ACE65C 51C00004 */  beql    $t6, $zero, .L80ACE670     
+/* 00330 80ACE660 8FBF001C */  lw      $ra, 0x001C($sp)           
+/* 00334 80ACE664 0C2B392D */  jal     func_80ACE4B4              
+/* 00338 80ACE668 02002025 */  or      $a0, $s0, $zero            ## $a0 = 00000000
+/* 0033C 80ACE66C 8FBF001C */  lw      $ra, 0x001C($sp)           
+.L80ACE670:
+/* 00340 80ACE670 8FB00014 */  lw      $s0, 0x0014($sp)           
+/* 00344 80ACE674 8FB10018 */  lw      $s1, 0x0018($sp)           
+/* 00348 80ACE678 03E00008 */  jr      $ra                        
+/* 0034C 80ACE67C 27BD0040 */  addiu   $sp, $sp, 0x0040           ## $sp = 00000000
+
+
+glabel func_80ACE680
+/* 00350 80ACE680 27BDFFE0 */  addiu   $sp, $sp, 0xFFE0           ## $sp = FFFFFFE0
+/* 00354 80ACE684 AFB00018 */  sw      $s0, 0x0018($sp)           
+/* 00358 80ACE688 00808025 */  or      $s0, $a0, $zero            ## $s0 = 00000000
+/* 0035C 80ACE68C AFBF001C */  sw      $ra, 0x001C($sp)           
+/* 00360 80ACE690 3C01BF00 */  lui     $at, 0xBF00                ## $at = BF000000
+/* 00364 80ACE694 44812000 */  mtc1    $at, $f4                   ## $f4 = -0.50
+/* 00368 80ACE698 3C013F80 */  lui     $at, 0x3F80                ## $at = 3F800000
+/* 0036C 80ACE69C 44813000 */  mtc1    $at, $f6                   ## $f6 = 1.00
+/* 00370 80ACE6A0 E6040074 */  swc1    $f4, 0x0074($s0)           ## 00000074
+/* 00374 80ACE6A4 0C021C0C */  jal     func_80087030              
+/* 00378 80ACE6A8 E6060068 */  swc1    $f6, 0x0068($s0)           ## 00000068
+/* 0037C 80ACE6AC 46000200 */  add.s   $f8, $f0, $f0              
+/* 00380 80ACE6B0 0C021C0C */  jal     func_80087030              
+/* 00384 80ACE6B4 E6080064 */  swc1    $f8, 0x0064($s0)           ## 00000064
+/* 00388 80ACE6B8 46000280 */  add.s   $f10, $f0, $f0             
+/* 0038C 80ACE6BC 0C021BE8 */  jal     func_80086FA0              
+/* 00390 80ACE6C0 E60A006C */  swc1    $f10, 0x006C($s0)          ## 0000006C
+/* 00394 80ACE6C4 304E0FFF */  andi    $t6, $v0, 0x0FFF           ## $t6 = 00000000
+/* 00398 80ACE6C8 0C021BE8 */  jal     func_80086FA0              
+/* 0039C 80ACE6CC A60E02FC */  sh      $t6, 0x02FC($s0)           ## 000002FC
+/* 003A0 80ACE6D0 304F0FFF */  andi    $t7, $v0, 0x0FFF           ## $t7 = 00000000
+/* 003A4 80ACE6D4 0C021BE8 */  jal     func_80086FA0              
+/* 003A8 80ACE6D8 A60F02FE */  sh      $t7, 0x02FE($s0)           ## 000002FE
+/* 003AC 80ACE6DC 30580FFF */  andi    $t8, $v0, 0x0FFF           ## $t8 = 00000000
+/* 003B0 80ACE6E0 24190003 */  addiu   $t9, $zero, 0x0003         ## $t9 = 00000003
+/* 003B4 80ACE6E4 A6180300 */  sh      $t8, 0x0300($s0)           ## 00000300
+/* 003B8 80ACE6E8 A6190302 */  sh      $t9, 0x0302($s0)           ## 00000302
+/* 003BC 80ACE6EC 02002025 */  or      $a0, $s0, $zero            ## $a0 = 00000000
+/* 003C0 80ACE6F0 0C02E3B2 */  jal     func_800B8EC8              
+/* 003C4 80ACE6F4 240528B4 */  addiu   $a1, $zero, 0x28B4         ## $a1 = 000028B4
+/* 003C8 80ACE6F8 3C0880AD */  lui     $t0, %hi(func_80ACE718)    ## $t0 = 80AD0000
+/* 003CC 80ACE6FC 2508E718 */  addiu   $t0, $t0, %lo(func_80ACE718) ## $t0 = 80ACE718
+/* 003D0 80ACE700 AE08015C */  sw      $t0, 0x015C($s0)           ## 0000015C
+/* 003D4 80ACE704 8FBF001C */  lw      $ra, 0x001C($sp)           
+/* 003D8 80ACE708 8FB00018 */  lw      $s0, 0x0018($sp)           
+/* 003DC 80ACE70C 27BD0020 */  addiu   $sp, $sp, 0x0020           ## $sp = 00000000
+/* 003E0 80ACE710 03E00008 */  jr      $ra                        
+/* 003E4 80ACE714 00000000 */  nop
+
+
+glabel func_80ACE718
+/* 003E8 80ACE718 27BDFFB8 */  addiu   $sp, $sp, 0xFFB8           ## $sp = FFFFFFB8
+/* 003EC 80ACE71C AFB00028 */  sw      $s0, 0x0028($sp)           
+/* 003F0 80ACE720 00808025 */  or      $s0, $a0, $zero            ## $s0 = 00000000
+/* 003F4 80ACE724 AFBF002C */  sw      $ra, 0x002C($sp)           
+/* 003F8 80ACE728 AFA5004C */  sw      $a1, 0x004C($sp)           
+/* 003FC 80ACE72C C6040068 */  lwc1    $f4, 0x0068($s0)           ## 00000068
+/* 00400 80ACE730 C6060074 */  lwc1    $f6, 0x0074($s0)           ## 00000074
+/* 00404 80ACE734 860E00BC */  lh      $t6, 0x00BC($s0)           ## 000000BC
+/* 00408 80ACE738 860F02FC */  lh      $t7, 0x02FC($s0)           ## 000002FC
+/* 0040C 80ACE73C 861900BE */  lh      $t9, 0x00BE($s0)           ## 000000BE
+/* 00410 80ACE740 860802FE */  lh      $t0, 0x02FE($s0)           ## 000002FE
+/* 00414 80ACE744 860A00C0 */  lh      $t2, 0x00C0($s0)           ## 000000C0
+/* 00418 80ACE748 860B0300 */  lh      $t3, 0x0300($s0)           ## 00000300
+/* 0041C 80ACE74C 46062200 */  add.s   $f8, $f4, $f6              
+/* 00420 80ACE750 01CFC021 */  addu    $t8, $t6, $t7              
+/* 00424 80ACE754 03284821 */  addu    $t1, $t9, $t0              
+/* 00428 80ACE758 014B6021 */  addu    $t4, $t2, $t3              
+/* 0042C 80ACE75C A61800BC */  sh      $t8, 0x00BC($s0)           ## 000000BC
+/* 00430 80ACE760 A60900BE */  sh      $t1, 0x00BE($s0)           ## 000000BE
+/* 00434 80ACE764 A60C00C0 */  sh      $t4, 0x00C0($s0)           ## 000000C0
+/* 00438 80ACE768 E6080068 */  swc1    $f8, 0x0068($s0)           ## 00000068
+/* 0043C 80ACE76C 0C02DA6B */  jal     func_800B69AC              
+/* 00440 80ACE770 02002025 */  or      $a0, $s0, $zero            ## $a0 = 00000000
+/* 00444 80ACE774 3C014270 */  lui     $at, 0x4270                ## $at = 42700000
+/* 00448 80ACE778 44815000 */  mtc1    $at, $f10                  ## $f10 = 60.00
+/* 0044C 80ACE77C 240D0005 */  addiu   $t5, $zero, 0x0005         ## $t5 = 00000005
+/* 00450 80ACE780 AFAD0014 */  sw      $t5, 0x0014($sp)           
+/* 00454 80ACE784 8FA4004C */  lw      $a0, 0x004C($sp)           
+/* 00458 80ACE788 02002825 */  or      $a1, $s0, $zero            ## $a1 = 00000000
+/* 0045C 80ACE78C 3C064170 */  lui     $a2, 0x4170                ## $a2 = 41700000
+/* 00460 80ACE790 3C0741F0 */  lui     $a3, 0x41F0                ## $a3 = 41F00000
+/* 00464 80ACE794 0C02DE2E */  jal     func_800B78B8              
+/* 00468 80ACE798 E7AA0010 */  swc1    $f10, 0x0010($sp)          
+/* 0046C 80ACE79C 960E0090 */  lhu     $t6, 0x0090($s0)           ## 00000090
+/* 00470 80ACE7A0 3C01C3FA */  lui     $at, 0xC3FA                ## $at = C3FA0000
+/* 00474 80ACE7A4 27A6003C */  addiu   $a2, $sp, 0x003C           ## $a2 = FFFFFFF4
+/* 00478 80ACE7A8 31CF0001 */  andi    $t7, $t6, 0x0001           ## $t7 = 00000000
+/* 0047C 80ACE7AC 15E00008 */  bne     $t7, $zero, .L80ACE7D0     
+/* 00480 80ACE7B0 27A70030 */  addiu   $a3, $sp, 0x0030           ## $a3 = FFFFFFE8
+/* 00484 80ACE7B4 C6100028 */  lwc1    $f16, 0x0028($s0)          ## 00000028
+/* 00488 80ACE7B8 44819000 */  mtc1    $at, $f18                  ## $f18 = -500.00
+/* 0048C 80ACE7BC 00000000 */  nop
+/* 00490 80ACE7C0 4612803C */  c.lt.s  $f16, $f18                 
+/* 00494 80ACE7C4 00000000 */  nop
+/* 00498 80ACE7C8 4502001D */  bc1fl   .L80ACE840                 
+/* 0049C 80ACE7CC 8FBF002C */  lw      $ra, 0x002C($sp)           
+.L80ACE7D0:
+/* 004A0 80ACE7D0 3C1880AD */  lui     $t8, %hi(D_80ACF684)       ## $t8 = 80AD0000
+/* 004A4 80ACE7D4 2718F684 */  addiu   $t8, $t8, %lo(D_80ACF684)  ## $t8 = 80ACF684
+/* 004A8 80ACE7D8 8F080000 */  lw      $t0, 0x0000($t8)           ## 80ACF684
+/* 004AC 80ACE7DC 3C0980AD */  lui     $t1, %hi(D_80ACF690)       ## $t1 = 80AD0000
+/* 004B0 80ACE7E0 2529F690 */  addiu   $t1, $t1, %lo(D_80ACF690)  ## $t1 = 80ACF690
+/* 004B4 80ACE7E4 ACC80000 */  sw      $t0, 0x0000($a2)           ## FFFFFFF4
+/* 004B8 80ACE7E8 8F190004 */  lw      $t9, 0x0004($t8)           ## 80ACF688
+/* 004BC 80ACE7EC 240C0014 */  addiu   $t4, $zero, 0x0014         ## $t4 = 00000014
+/* 004C0 80ACE7F0 240D0028 */  addiu   $t5, $zero, 0x0028         ## $t5 = 00000028
+/* 004C4 80ACE7F4 ACD90004 */  sw      $t9, 0x0004($a2)           ## FFFFFFF8
+/* 004C8 80ACE7F8 8F080008 */  lw      $t0, 0x0008($t8)           ## 80ACF68C
+/* 004CC 80ACE7FC 240E0002 */  addiu   $t6, $zero, 0x0002         ## $t6 = 00000002
+/* 004D0 80ACE800 26050024 */  addiu   $a1, $s0, 0x0024           ## $a1 = 00000024
+/* 004D4 80ACE804 ACC80008 */  sw      $t0, 0x0008($a2)           ## FFFFFFFC
+/* 004D8 80ACE808 8D2B0000 */  lw      $t3, 0x0000($t1)           ## 80ACF690
+/* 004DC 80ACE80C ACEB0000 */  sw      $t3, 0x0000($a3)           ## FFFFFFE8
+/* 004E0 80ACE810 8D2A0004 */  lw      $t2, 0x0004($t1)           ## 80ACF694
+/* 004E4 80ACE814 ACEA0004 */  sw      $t2, 0x0004($a3)           ## FFFFFFEC
+/* 004E8 80ACE818 8D2B0008 */  lw      $t3, 0x0008($t1)           ## 80ACF698
+/* 004EC 80ACE81C ACEB0008 */  sw      $t3, 0x0008($a3)           ## FFFFFFF0
+/* 004F0 80ACE820 AFAE0018 */  sw      $t6, 0x0018($sp)           
+/* 004F4 80ACE824 AFAD0014 */  sw      $t5, 0x0014($sp)           
+/* 004F8 80ACE828 AFAC0010 */  sw      $t4, 0x0010($sp)           
+/* 004FC 80ACE82C 0C02CC0C */  jal     func_800B3030              
+/* 00500 80ACE830 8FA4004C */  lw      $a0, 0x004C($sp)           
+/* 00504 80ACE834 0C02D9C3 */  jal     func_800B670C              
+/* 00508 80ACE838 02002025 */  or      $a0, $s0, $zero            ## $a0 = 00000000
+/* 0050C 80ACE83C 8FBF002C */  lw      $ra, 0x002C($sp)           
+.L80ACE840:
+/* 00510 80ACE840 8FB00028 */  lw      $s0, 0x0028($sp)           
+/* 00514 80ACE844 27BD0048 */  addiu   $sp, $sp, 0x0048           ## $sp = 00000000
+/* 00518 80ACE848 03E00008 */  jr      $ra                        
+/* 0051C 80ACE84C 00000000 */  nop
+
+
+glabel func_80ACE850
+/* 00520 80ACE850 27BDFF68 */  addiu   $sp, $sp, 0xFF68           ## $sp = FFFFFF68
+/* 00524 80ACE854 AFBF0074 */  sw      $ra, 0x0074($sp)           
+/* 00528 80ACE858 AFBE0070 */  sw      $s8, 0x0070($sp)           
+/* 0052C 80ACE85C AFB7006C */  sw      $s7, 0x006C($sp)           
+/* 00530 80ACE860 AFB60068 */  sw      $s6, 0x0068($sp)           
+/* 00534 80ACE864 AFB50064 */  sw      $s5, 0x0064($sp)           
+/* 00538 80ACE868 AFB40060 */  sw      $s4, 0x0060($sp)           
+/* 0053C 80ACE86C AFB3005C */  sw      $s3, 0x005C($sp)           
+/* 00540 80ACE870 AFB20058 */  sw      $s2, 0x0058($sp)           
+/* 00544 80ACE874 AFB10054 */  sw      $s1, 0x0054($sp)           
+/* 00548 80ACE878 AFB00050 */  sw      $s0, 0x0050($sp)           
+/* 0054C 80ACE87C F7BA0048 */  sdc1    $f26, 0x0048($sp)          
+/* 00550 80ACE880 F7B80040 */  sdc1    $f24, 0x0040($sp)          
+/* 00554 80ACE884 F7B60038 */  sdc1    $f22, 0x0038($sp)          
+/* 00558 80ACE888 F7B40030 */  sdc1    $f20, 0x0030($sp)          
+/* 0055C 80ACE88C AFA5009C */  sw      $a1, 0x009C($sp)           
+/* 00560 80ACE890 849400BE */  lh      $s4, 0x00BE($a0)           ## 000000BE
+/* 00564 80ACE894 249001B8 */  addiu   $s0, $a0, 0x01B8           ## $s0 = 000001B8
+/* 00568 80ACE898 0C021BE8 */  jal     func_80086FA0              
+/* 0056C 80ACE89C AFA40098 */  sw      $a0, 0x0098($sp)           
+/* 00570 80ACE8A0 3C01BF80 */  lui     $at, 0xBF80                ## $at = BF800000
+/* 00574 80ACE8A4 4481D000 */  mtc1    $at, $f26                  ## $f26 = -1.00
+/* 00578 80ACE8A8 24010006 */  addiu   $at, $zero, 0x0006         ## $at = 00000006
+/* 0057C 80ACE8AC 0041001B */  divu    $zero, $v0, $at            
+/* 00580 80ACE8B0 8FA30098 */  lw      $v1, 0x0098($sp)           
+/* 00584 80ACE8B4 00007010 */  mfhi    $t6                        
+/* 00588 80ACE8B8 240F0001 */  addiu   $t7, $zero, 0x0001         ## $t7 = 00000001
+/* 0058C 80ACE8BC A46E0308 */  sh      $t6, 0x0308($v1)           ## 00000308
+/* 00590 80ACE8C0 A46F0302 */  sh      $t7, 0x0302($v1)           ## 00000302
+/* 00594 80ACE8C4 0C021BF7 */  jal     func_80086FDC              
+/* 00598 80ACE8C8 E47A0074 */  swc1    $f26, 0x0074($v1)          ## 00000074
+/* 0059C 80ACE8CC 8FA20098 */  lw      $v0, 0x0098($sp)           
+/* 005A0 80ACE8D0 3C013F00 */  lui     $at, 0x3F00                ## $at = 3F000000
+/* 005A4 80ACE8D4 4481C000 */  mtc1    $at, $f24                  ## $f24 = 0.50
+/* 005A8 80ACE8D8 3C014110 */  lui     $at, 0x4110                ## $at = 41100000
+/* 005AC 80ACE8DC 3C1580AD */  lui     $s5, %hi(D_80ACF654)       ## $s5 = 80AD0000
+/* 005B0 80ACE8E0 E4400068 */  swc1    $f0, 0x0068($v0)           ## 00000068
+/* 005B4 80ACE8E4 84520308 */  lh      $s2, 0x0308($v0)           ## 00000308
+/* 005B8 80ACE8E8 245800BC */  addiu   $t8, $v0, 0x00BC           ## $t8 = 000000BC
+/* 005BC 80ACE8EC 4481A000 */  mtc1    $at, $f20                  ## $f20 = 9.00
+/* 005C0 80ACE8F0 4480B000 */  mtc1    $zero, $f22                ## $f22 = 0.00
+/* 005C4 80ACE8F4 AFB80078 */  sw      $t8, 0x0078($sp)           
+/* 005C8 80ACE8F8 26B5F654 */  addiu   $s5, $s5, %lo(D_80ACF654)  ## $s5 = 80ACF654
+/* 005CC 80ACE8FC 00009825 */  or      $s3, $zero, $zero          ## $s3 = 00000000
+/* 005D0 80ACE900 24170002 */  addiu   $s7, $zero, 0x0002         ## $s7 = 00000002
+/* 005D4 80ACE904 24160006 */  addiu   $s6, $zero, 0x0006         ## $s6 = 00000006
+/* 005D8 80ACE908 245E0024 */  addiu   $s8, $v0, 0x0024           ## $s8 = 00000024
+/* 005DC 80ACE90C 8FC80000 */  lw      $t0, 0x0000($s8)           ## 00000024
+.L80ACE910:
+/* 005E0 80ACE910 00142400 */  sll     $a0, $s4, 16               
+/* 005E4 80ACE914 00042403 */  sra     $a0, $a0, 16               
+/* 005E8 80ACE918 AE080000 */  sw      $t0, 0x0000($s0)           ## 000001B8
+/* 005EC 80ACE91C 8FD90004 */  lw      $t9, 0x0004($s8)           ## 00000028
+/* 005F0 80ACE920 AE190004 */  sw      $t9, 0x0004($s0)           ## 000001BC
+/* 005F4 80ACE924 8FC80008 */  lw      $t0, 0x0008($s8)           ## 0000002C
+/* 005F8 80ACE928 0C03FB51 */  jal     func_800FED44              
+/* 005FC 80ACE92C AE080008 */  sw      $t0, 0x0008($s0)           ## 000001C0
+/* 00600 80ACE930 001248C0 */  sll     $t1, $s2,  3               
+/* 00604 80ACE934 02A98821 */  addu    $s1, $s5, $t1              
+/* 00608 80ACE938 C6240000 */  lwc1    $f4, 0x0000($s1)           ## 00000000
+/* 0060C 80ACE93C 00142400 */  sll     $a0, $s4, 16               
+/* 00610 80ACE940 00042403 */  sra     $a0, $a0, 16               
+/* 00614 80ACE944 46002182 */  mul.s   $f6, $f4, $f0              
+/* 00618 80ACE948 E606000C */  swc1    $f6, 0x000C($s0)           ## 000001C4
+/* 0061C 80ACE94C C6280004 */  lwc1    $f8, 0x0004($s1)           ## 00000004
+/* 00620 80ACE950 0C03FB61 */  jal     func_800FED84              
+/* 00624 80ACE954 E6080010 */  swc1    $f8, 0x0010($s0)           ## 000001C8
+/* 00628 80ACE958 C62A0000 */  lwc1    $f10, 0x0000($s1)          ## 00000000
+/* 0062C 80ACE95C 46000407 */  neg.s   $f16, $f0                  
+/* 00630 80ACE960 46105482 */  mul.s   $f18, $f10, $f16           
+/* 00634 80ACE964 0C021C0C */  jal     func_80087030              
+/* 00638 80ACE968 E6120014 */  swc1    $f18, 0x0014($s0)          ## 000001CC
+/* 0063C 80ACE96C C604000C */  lwc1    $f4, 0x000C($s0)           ## 000001C4
+/* 00640 80ACE970 46002180 */  add.s   $f6, $f4, $f0              
+/* 00644 80ACE974 0C021BF7 */  jal     func_80086FDC              
+/* 00648 80ACE978 E606000C */  swc1    $f6, 0x000C($s0)           ## 000001C4
+/* 0064C 80ACE97C 46180282 */  mul.s   $f10, $f0, $f24            
+/* 00650 80ACE980 C6080010 */  lwc1    $f8, 0x0010($s0)           ## 000001C8
+/* 00654 80ACE984 460A4400 */  add.s   $f16, $f8, $f10            
+/* 00658 80ACE988 0C021C0C */  jal     func_80087030              
+/* 0065C 80ACE98C E6100010 */  swc1    $f16, 0x0010($s0)          ## 000001C8
+/* 00660 80ACE990 C608000C */  lwc1    $f8, 0x000C($s0)           ## 000001C4
+/* 00664 80ACE994 C6120014 */  lwc1    $f18, 0x0014($s0)          ## 000001CC
+/* 00668 80ACE998 C6060000 */  lwc1    $f6, 0x0000($s0)           ## 000001B8
+/* 0066C 80ACE99C 4608A282 */  mul.s   $f10, $f20, $f8            
+/* 00670 80ACE9A0 46009100 */  add.s   $f4, $f18, $f0             
+/* 00674 80ACE9A4 C6120004 */  lwc1    $f18, 0x0004($s0)          ## 000001BC
+/* 00678 80ACE9A8 E6160018 */  swc1    $f22, 0x0018($s0)          ## 000001D0
+/* 0067C 80ACE9AC E61A001C */  swc1    $f26, 0x001C($s0)          ## 000001D4
+/* 00680 80ACE9B0 E6040014 */  swc1    $f4, 0x0014($s0)           ## 000001CC
+/* 00684 80ACE9B4 C6040010 */  lwc1    $f4, 0x0010($s0)           ## 000001C8
+/* 00688 80ACE9B8 460A3400 */  add.s   $f16, $f6, $f10            
+/* 0068C 80ACE9BC C60A0008 */  lwc1    $f10, 0x0008($s0)          ## 000001C0
+/* 00690 80ACE9C0 4604A202 */  mul.s   $f8, $f20, $f4             
+/* 00694 80ACE9C4 E6160020 */  swc1    $f22, 0x0020($s0)          ## 000001D8
+/* 00698 80ACE9C8 E6100000 */  swc1    $f16, 0x0000($s0)          ## 000001B8
+/* 0069C 80ACE9CC C6100014 */  lwc1    $f16, 0x0014($s0)          ## 000001CC
+/* 006A0 80ACE9D0 4610A102 */  mul.s   $f4, $f20, $f16            
+/* 006A4 80ACE9D4 46089180 */  add.s   $f6, $f18, $f8             
+/* 006A8 80ACE9D8 E6060004 */  swc1    $f6, 0x0004($s0)           ## 000001BC
+/* 006AC 80ACE9DC 46045480 */  add.s   $f18, $f10, $f4            
+/* 006B0 80ACE9E0 E6120008 */  swc1    $f18, 0x0008($s0)          ## 000001C0
+/* 006B4 80ACE9E4 8FAA0078 */  lw      $t2, 0x0078($sp)           
+/* 006B8 80ACE9E8 894C0000 */  lwl     $t4, 0x0000($t2)           ## 00000000
+/* 006BC 80ACE9EC 994C0003 */  lwr     $t4, 0x0003($t2)           ## 00000003
+/* 006C0 80ACE9F0 AA0C0024 */  swl     $t4, 0x0024($s0)           ## 000001DC
+/* 006C4 80ACE9F4 BA0C0027 */  swr     $t4, 0x0027($s0)           ## 000001DF
+/* 006C8 80ACE9F8 954C0004 */  lhu     $t4, 0x0004($t2)           ## 00000004
+/* 006CC 80ACE9FC 0C021BE8 */  jal     func_80086FA0              
+/* 006D0 80ACEA00 A60C0028 */  sh      $t4, 0x0028($s0)           ## 000001E0
+/* 006D4 80ACEA04 00026C00 */  sll     $t5, $v0, 16               
+/* 006D8 80ACEA08 000D7403 */  sra     $t6, $t5, 16               
+/* 006DC 80ACEA0C 000E7983 */  sra     $t7, $t6,  6               
+/* 006E0 80ACEA10 0C021BE8 */  jal     func_80086FA0              
+/* 006E4 80ACEA14 A60F002A */  sh      $t7, 0x002A($s0)           ## 000001E2
+/* 006E8 80ACEA18 0002C400 */  sll     $t8, $v0, 16               
+/* 006EC 80ACEA1C 0018CC03 */  sra     $t9, $t8, 16               
+/* 006F0 80ACEA20 00194183 */  sra     $t0, $t9,  6               
+/* 006F4 80ACEA24 0C021BE8 */  jal     func_80086FA0              
+/* 006F8 80ACEA28 A608002C */  sh      $t0, 0x002C($s0)           ## 000001E4
+/* 006FC 80ACEA2C 264D0003 */  addiu   $t5, $s2, 0x0003           ## $t5 = 00000003
+/* 00700 80ACEA30 01B6001A */  div     $zero, $t5, $s6            
+/* 00704 80ACEA34 00024C00 */  sll     $t1, $v0, 16               
+/* 00708 80ACEA38 00095403 */  sra     $t2, $t1, 16               
+/* 0070C 80ACEA3C 26730001 */  addiu   $s3, $s3, 0x0001           ## $s3 = 00000001
+/* 00710 80ACEA40 000A5983 */  sra     $t3, $t2,  6               
+/* 00714 80ACEA44 240C0001 */  addiu   $t4, $zero, 0x0001         ## $t4 = 00000001
+/* 00718 80ACEA48 00009010 */  mfhi    $s2                        
+/* 0071C 80ACEA4C A60B002E */  sh      $t3, 0x002E($s0)           ## 000001E6
+/* 00720 80ACEA50 A60C0030 */  sh      $t4, 0x0030($s0)           ## 000001E8
+/* 00724 80ACEA54 16C00002 */  bne     $s6, $zero, .L80ACEA60     
+/* 00728 80ACEA58 00000000 */  nop
+/* 0072C 80ACEA5C 0007000D */  break 7
+.L80ACEA60:
+/* 00730 80ACEA60 2401FFFF */  addiu   $at, $zero, 0xFFFF         ## $at = FFFFFFFF
+/* 00734 80ACEA64 16C10004 */  bne     $s6, $at, .L80ACEA78       
+/* 00738 80ACEA68 3C018000 */  lui     $at, 0x8000                ## $at = 80000000
+/* 0073C 80ACEA6C 15A10002 */  bne     $t5, $at, .L80ACEA78       
+/* 00740 80ACEA70 00000000 */  nop
+/* 00744 80ACEA74 0006000D */  break 6
+.L80ACEA78:
+/* 00748 80ACEA78 26100034 */  addiu   $s0, $s0, 0x0034           ## $s0 = 000001EC
+/* 0074C 80ACEA7C 5677FFA4 */  bnel    $s3, $s7, .L80ACE910       
+/* 00750 80ACEA80 8FC80000 */  lw      $t0, 0x0000($s8)           ## 00000024
+/* 00754 80ACEA84 8FAF0098 */  lw      $t7, 0x0098($sp)           
+/* 00758 80ACEA88 240E0002 */  addiu   $t6, $zero, 0x0002         ## $t6 = 00000002
+/* 0075C 80ACEA8C 24180007 */  addiu   $t8, $zero, 0x0007         ## $t8 = 00000007
+/* 00760 80ACEA90 A5EE0118 */  sh      $t6, 0x0118($t7)           ## 00000118
+/* 00764 80ACEA94 24190008 */  addiu   $t9, $zero, 0x0008         ## $t9 = 00000008
+/* 00768 80ACEA98 24080014 */  addiu   $t0, $zero, 0x0014         ## $t0 = 00000014
+/* 0076C 80ACEA9C 2409FFFF */  addiu   $t1, $zero, 0xFFFF         ## $t1 = FFFFFFFF
+/* 00770 80ACEAA0 240A000A */  addiu   $t2, $zero, 0x000A         ## $t2 = 0000000A
+/* 00774 80ACEAA4 AFAA0020 */  sw      $t2, 0x0020($sp)           
+/* 00778 80ACEAA8 AFA9001C */  sw      $t1, 0x001C($sp)           
+/* 0077C 80ACEAAC AFA80018 */  sw      $t0, 0x0018($sp)           
+/* 00780 80ACEAB0 AFB90014 */  sw      $t9, 0x0014($sp)           
+/* 00784 80ACEAB4 AFA00024 */  sw      $zero, 0x0024($sp)         
+/* 00788 80ACEAB8 AFB80010 */  sw      $t8, 0x0010($sp)           
+/* 0078C 80ACEABC 8FA4009C */  lw      $a0, 0x009C($sp)           
+/* 00790 80ACEAC0 03C02825 */  or      $a1, $s8, $zero            ## $a1 = 00000024
+/* 00794 80ACEAC4 3C064150 */  lui     $a2, 0x4150                ## $a2 = 41500000
+/* 00798 80ACEAC8 0C02C887 */  jal     func_800B221C              
+/* 0079C 80ACEACC 00003825 */  or      $a3, $zero, $zero          ## $a3 = 00000000
+/* 007A0 80ACEAD0 8FA40098 */  lw      $a0, 0x0098($sp)           
+/* 007A4 80ACEAD4 0C02E3B2 */  jal     func_800B8EC8              
+/* 007A8 80ACEAD8 2405293A */  addiu   $a1, $zero, 0x293A         ## $a1 = 0000293A
+/* 007AC 80ACEADC 8FAC0098 */  lw      $t4, 0x0098($sp)           
+/* 007B0 80ACEAE0 3C0B80AD */  lui     $t3, %hi(func_80ACECFC)    ## $t3 = 80AD0000
+/* 007B4 80ACEAE4 256BECFC */  addiu   $t3, $t3, %lo(func_80ACECFC) ## $t3 = 80ACECFC
+/* 007B8 80ACEAE8 AD8B015C */  sw      $t3, 0x015C($t4)           ## 0000015C
+/* 007BC 80ACEAEC 8FBF0074 */  lw      $ra, 0x0074($sp)           
+/* 007C0 80ACEAF0 D7B40030 */  ldc1    $f20, 0x0030($sp)          
+/* 007C4 80ACEAF4 D7B60038 */  ldc1    $f22, 0x0038($sp)          
+/* 007C8 80ACEAF8 D7B80040 */  ldc1    $f24, 0x0040($sp)          
+/* 007CC 80ACEAFC D7BA0048 */  ldc1    $f26, 0x0048($sp)          
+/* 007D0 80ACEB00 8FB00050 */  lw      $s0, 0x0050($sp)           
+/* 007D4 80ACEB04 8FB10054 */  lw      $s1, 0x0054($sp)           
+/* 007D8 80ACEB08 8FB20058 */  lw      $s2, 0x0058($sp)           
+/* 007DC 80ACEB0C 8FB3005C */  lw      $s3, 0x005C($sp)           
+/* 007E0 80ACEB10 8FB40060 */  lw      $s4, 0x0060($sp)           
+/* 007E4 80ACEB14 8FB50064 */  lw      $s5, 0x0064($sp)           
+/* 007E8 80ACEB18 8FB60068 */  lw      $s6, 0x0068($sp)           
+/* 007EC 80ACEB1C 8FB7006C */  lw      $s7, 0x006C($sp)           
+/* 007F0 80ACEB20 8FBE0070 */  lw      $s8, 0x0070($sp)           
+/* 007F4 80ACEB24 03E00008 */  jr      $ra                        
+/* 007F8 80ACEB28 27BD0098 */  addiu   $sp, $sp, 0x0098           ## $sp = 00000000
+
+
+glabel func_80ACEB2C
+/* 007FC 80ACEB2C 27BDFF80 */  addiu   $sp, $sp, 0xFF80           ## $sp = FFFFFF80
+/* 00800 80ACEB30 84820308 */  lh      $v0, 0x0308($a0)           ## 00000308
+/* 00804 80ACEB34 27AE0018 */  addiu   $t6, $sp, 0x0018           ## $t6 = FFFFFF98
+/* 00808 80ACEB38 0080C825 */  or      $t9, $a0, $zero            ## $t9 = 00000000
+/* 0080C 80ACEB3C 248B0030 */  addiu   $t3, $a0, 0x0030           ## $t3 = 00000030
+.L80ACEB40:
+/* 00810 80ACEB40 8F3801B8 */  lw      $t8, 0x01B8($t9)           ## 000001B8
+/* 00814 80ACEB44 2739000C */  addiu   $t9, $t9, 0x000C           ## $t9 = 0000000C
+/* 00818 80ACEB48 25CE000C */  addiu   $t6, $t6, 0x000C           ## $t6 = FFFFFFA4
+/* 0081C 80ACEB4C ADD8FFF4 */  sw      $t8, -0x000C($t6)          ## FFFFFF98
+/* 00820 80ACEB50 8F2F01B0 */  lw      $t7, 0x01B0($t9)           ## 000001BC
+/* 00824 80ACEB54 ADCFFFF8 */  sw      $t7, -0x0008($t6)          ## FFFFFF9C
+/* 00828 80ACEB58 8F3801B4 */  lw      $t8, 0x01B4($t9)           ## 000001C0
+/* 0082C 80ACEB5C 172BFFF8 */  bne     $t9, $t3, .L80ACEB40       
+/* 00830 80ACEB60 ADD8FFFC */  sw      $t8, -0x0004($t6)          ## FFFFFFA0
+/* 00834 80ACEB64 8F3801B8 */  lw      $t8, 0x01B8($t9)           ## 000001C4
+/* 00838 80ACEB68 0080C825 */  or      $t9, $a0, $zero            ## $t9 = 00000000
+/* 0083C 80ACEB6C 27AC004C */  addiu   $t4, $sp, 0x004C           ## $t4 = FFFFFFCC
+/* 00840 80ACEB70 ADD80000 */  sw      $t8, 0x0000($t6)           ## FFFFFFA4
+/* 00844 80ACEB74 248E0030 */  addiu   $t6, $a0, 0x0030           ## $t6 = 00000030
+.L80ACEB78:
+/* 00848 80ACEB78 8F2B01EC */  lw      $t3, 0x01EC($t9)           ## 000001EC
+/* 0084C 80ACEB7C 2739000C */  addiu   $t9, $t9, 0x000C           ## $t9 = 0000000C
+/* 00850 80ACEB80 258C000C */  addiu   $t4, $t4, 0x000C           ## $t4 = FFFFFFD8
+/* 00854 80ACEB84 AD8BFFF4 */  sw      $t3, -0x000C($t4)          ## FFFFFFCC
+/* 00858 80ACEB88 8F2D01E4 */  lw      $t5, 0x01E4($t9)           ## 000001F0
+/* 0085C 80ACEB8C AD8DFFF8 */  sw      $t5, -0x0008($t4)          ## FFFFFFD0
+/* 00860 80ACEB90 8F2B01E8 */  lw      $t3, 0x01E8($t9)           ## 000001F4
+/* 00864 80ACEB94 172EFFF8 */  bne     $t9, $t6, .L80ACEB78       
+/* 00868 80ACEB98 AD8BFFFC */  sw      $t3, -0x0004($t4)          ## FFFFFFD4
+/* 0086C 80ACEB9C 8F2B01EC */  lw      $t3, 0x01EC($t9)           ## 000001F8
+/* 00870 80ACEBA0 27A60018 */  addiu   $a2, $sp, 0x0018           ## $a2 = FFFFFF98
+/* 00874 80ACEBA4 27AA0080 */  addiu   $t2, $sp, 0x0080           ## $t2 = 00000000
+/* 00878 80ACEBA8 24090006 */  addiu   $t1, $zero, 0x0006         ## $t1 = 00000006
+/* 0087C 80ACEBAC 24080034 */  addiu   $t0, $zero, 0x0034         ## $t0 = 00000034
+/* 00880 80ACEBB0 24070005 */  addiu   $a3, $zero, 0x0005         ## $a3 = 00000005
+/* 00884 80ACEBB4 AD8B0000 */  sw      $t3, 0x0000($t4)           ## FFFFFFD8
+.L80ACEBB8:
+/* 00888 80ACEBB8 14400003 */  bne     $v0, $zero, .L80ACEBC8     
+/* 0088C 80ACEBBC 2443FFFF */  addiu   $v1, $v0, 0xFFFF           ## $v1 = FFFFFFFF
+/* 00890 80ACEBC0 10000001 */  beq     $zero, $zero, .L80ACEBC8   
+/* 00894 80ACEBC4 00E01825 */  or      $v1, $a3, $zero            ## $v1 = 00000005
+.L80ACEBC8:
+/* 00898 80ACEBC8 14470003 */  bne     $v0, $a3, .L80ACEBD8       
+/* 0089C 80ACEBCC 24450001 */  addiu   $a1, $v0, 0x0001           ## $a1 = 00000001
+/* 008A0 80ACEBD0 10000001 */  beq     $zero, $zero, .L80ACEBD8   
+/* 008A4 80ACEBD4 00002825 */  or      $a1, $zero, $zero          ## $a1 = 00000000
+.L80ACEBD8:
+/* 008A8 80ACEBD8 00480019 */  multu   $v0, $t0                   
+/* 008AC 80ACEBDC 00C06025 */  or      $t4, $a2, $zero            ## $t4 = FFFFFF98
+/* 008B0 80ACEBE0 24CD0030 */  addiu   $t5, $a2, 0x0030           ## $t5 = FFFFFFC8
+/* 008B4 80ACEBE4 00007812 */  mflo    $t7                        
+/* 008B8 80ACEBE8 008FC021 */  addu    $t8, $a0, $t7              
+/* 008BC 80ACEBEC 00000000 */  nop
+.L80ACEBF0:
+/* 008C0 80ACEBF0 8D990000 */  lw      $t9, 0x0000($t4)           ## FFFFFF98
+/* 008C4 80ACEBF4 258C000C */  addiu   $t4, $t4, 0x000C           ## $t4 = FFFFFFA4
+/* 008C8 80ACEBF8 2718000C */  addiu   $t8, $t8, 0x000C           ## $t8 = 0000000C
+/* 008CC 80ACEBFC AF1901AC */  sw      $t9, 0x01AC($t8)           ## 000001B8
+/* 008D0 80ACEC00 8D8EFFF8 */  lw      $t6, -0x0008($t4)          ## FFFFFF9C
+/* 008D4 80ACEC04 AF0E01B0 */  sw      $t6, 0x01B0($t8)           ## 000001BC
+/* 008D8 80ACEC08 8D99FFFC */  lw      $t9, -0x0004($t4)          ## FFFFFFA0
+/* 008DC 80ACEC0C 158DFFF8 */  bne     $t4, $t5, .L80ACEBF0       
+/* 008E0 80ACEC10 AF1901B4 */  sw      $t9, 0x01B4($t8)           ## 000001C0
+/* 008E4 80ACEC14 00680019 */  multu   $v1, $t0                   
+/* 008E8 80ACEC18 8D990000 */  lw      $t9, 0x0000($t4)           ## FFFFFFA4
+/* 008EC 80ACEC1C 24CE0030 */  addiu   $t6, $a2, 0x0030           ## $t6 = FFFFFFC8
+/* 008F0 80ACEC20 AF1901B8 */  sw      $t9, 0x01B8($t8)           ## 000001C4
+/* 008F4 80ACEC24 00C0C025 */  or      $t8, $a2, $zero            ## $t8 = FFFFFF98
+/* 008F8 80ACEC28 00005812 */  mflo    $t3                        
+/* 008FC 80ACEC2C 008B7821 */  addu    $t7, $a0, $t3              
+/* 00900 80ACEC30 00000000 */  nop
+.L80ACEC34:
+/* 00904 80ACEC34 8F0C0000 */  lw      $t4, 0x0000($t8)           ## FFFFFF98
+/* 00908 80ACEC38 2718000C */  addiu   $t8, $t8, 0x000C           ## $t8 = FFFFFFA4
+/* 0090C 80ACEC3C 25EF000C */  addiu   $t7, $t7, 0x000C           ## $t7 = 0000000C
+/* 00910 80ACEC40 ADEC01AC */  sw      $t4, 0x01AC($t7)           ## 000001B8
+/* 00914 80ACEC44 8F0DFFF8 */  lw      $t5, -0x0008($t8)          ## FFFFFF9C
+/* 00918 80ACEC48 ADED01B0 */  sw      $t5, 0x01B0($t7)           ## 000001BC
+/* 0091C 80ACEC4C 8F0CFFFC */  lw      $t4, -0x0004($t8)          ## FFFFFFA0
+/* 00920 80ACEC50 170EFFF8 */  bne     $t8, $t6, .L80ACEC34       
+/* 00924 80ACEC54 ADEC01B4 */  sw      $t4, 0x01B4($t7)           ## 000001C0
+/* 00928 80ACEC58 00A80019 */  multu   $a1, $t0                   
+/* 0092C 80ACEC5C 8F0C0000 */  lw      $t4, 0x0000($t8)           ## FFFFFFA4
+/* 00930 80ACEC60 24CD0030 */  addiu   $t5, $a2, 0x0030           ## $t5 = FFFFFFC8
+/* 00934 80ACEC64 ADEC01B8 */  sw      $t4, 0x01B8($t7)           ## 000001C4
+/* 00938 80ACEC68 00C07825 */  or      $t7, $a2, $zero            ## $t7 = FFFFFF98
+/* 0093C 80ACEC6C 244C0003 */  addiu   $t4, $v0, 0x0003           ## $t4 = 00000003
+/* 00940 80ACEC70 0000C812 */  mflo    $t9                        
+/* 00944 80ACEC74 00995821 */  addu    $t3, $a0, $t9              
+/* 00948 80ACEC78 00000000 */  nop
+.L80ACEC7C:
+/* 0094C 80ACEC7C 8DF80000 */  lw      $t8, 0x0000($t7)           ## FFFFFF98
+/* 00950 80ACEC80 25EF000C */  addiu   $t7, $t7, 0x000C           ## $t7 = FFFFFFA4
+/* 00954 80ACEC84 256B000C */  addiu   $t3, $t3, 0x000C           ## $t3 = 0000003C
+/* 00958 80ACEC88 AD7801AC */  sw      $t8, 0x01AC($t3)           ## 000001E8
+/* 0095C 80ACEC8C 8DEEFFF8 */  lw      $t6, -0x0008($t7)          ## FFFFFF9C
+/* 00960 80ACEC90 AD6E01B0 */  sw      $t6, 0x01B0($t3)           ## 000001EC
+/* 00964 80ACEC94 8DF8FFFC */  lw      $t8, -0x0004($t7)          ## FFFFFFA0
+/* 00968 80ACEC98 15EDFFF8 */  bne     $t7, $t5, .L80ACEC7C       
+/* 0096C 80ACEC9C AD7801B4 */  sw      $t8, 0x01B4($t3)           ## 000001F0
+/* 00970 80ACECA0 0189001A */  div     $zero, $t4, $t1            
+/* 00974 80ACECA4 8DF80000 */  lw      $t8, 0x0000($t7)           ## FFFFFFA4
+/* 00978 80ACECA8 24C60034 */  addiu   $a2, $a2, 0x0034           ## $a2 = FFFFFFCC
+/* 0097C 80ACECAC 00001010 */  mfhi    $v0                        
+/* 00980 80ACECB0 AD7801B8 */  sw      $t8, 0x01B8($t3)           ## 000001F4
+/* 00984 80ACECB4 15200002 */  bne     $t1, $zero, .L80ACECC0     
+/* 00988 80ACECB8 00000000 */  nop
+/* 0098C 80ACECBC 0007000D */  break 7
+.L80ACECC0:
+/* 00990 80ACECC0 2401FFFF */  addiu   $at, $zero, 0xFFFF         ## $at = FFFFFFFF
+/* 00994 80ACECC4 15210004 */  bne     $t1, $at, .L80ACECD8       
+/* 00998 80ACECC8 3C018000 */  lui     $at, 0x8000                ## $at = 80000000
+/* 0099C 80ACECCC 15810002 */  bne     $t4, $at, .L80ACECD8       
+/* 009A0 80ACECD0 00000000 */  nop
+/* 009A4 80ACECD4 0006000D */  break 6
+.L80ACECD8:
+/* 009A8 80ACECD8 14CAFFB7 */  bne     $a2, $t2, .L80ACEBB8       
+/* 009AC 80ACECDC 00000000 */  nop
+/* 009B0 80ACECE0 3C0D80AD */  lui     $t5, %hi(func_80ACECFC)    ## $t5 = 80AD0000
+/* 009B4 80ACECE4 24190002 */  addiu   $t9, $zero, 0x0002         ## $t9 = 00000002
+/* 009B8 80ACECE8 25ADECFC */  addiu   $t5, $t5, %lo(func_80ACECFC) ## $t5 = 80ACECFC
+/* 009BC 80ACECEC A4990302 */  sh      $t9, 0x0302($a0)           ## 00000302
+/* 009C0 80ACECF0 AC8D015C */  sw      $t5, 0x015C($a0)           ## 0000015C
+/* 009C4 80ACECF4 03E00008 */  jr      $ra                        
+/* 009C8 80ACECF8 27BD0080 */  addiu   $sp, $sp, 0x0080           ## $sp = 00000000
+
+
+glabel func_80ACECFC
+/* 009CC 80ACECFC 27BDFFA0 */  addiu   $sp, $sp, 0xFFA0           ## $sp = FFFFFFA0
+/* 009D0 80ACED00 AFB2004C */  sw      $s2, 0x004C($sp)           
+/* 009D4 80ACED04 00809025 */  or      $s2, $a0, $zero            ## $s2 = 00000000
+/* 009D8 80ACED08 AFBF005C */  sw      $ra, 0x005C($sp)           
+/* 009DC 80ACED0C AFB50058 */  sw      $s5, 0x0058($sp)           
+/* 009E0 80ACED10 AFB40054 */  sw      $s4, 0x0054($sp)           
+/* 009E4 80ACED14 AFB30050 */  sw      $s3, 0x0050($sp)           
+/* 009E8 80ACED18 AFB10048 */  sw      $s1, 0x0048($sp)           
+/* 009EC 80ACED1C AFB00044 */  sw      $s0, 0x0044($sp)           
+/* 009F0 80ACED20 F7BC0038 */  sdc1    $f28, 0x0038($sp)          
+/* 009F4 80ACED24 F7BA0030 */  sdc1    $f26, 0x0030($sp)          
+/* 009F8 80ACED28 F7B80028 */  sdc1    $f24, 0x0028($sp)          
+/* 009FC 80ACED2C F7B60020 */  sdc1    $f22, 0x0020($sp)          
+/* 00A00 80ACED30 F7B40018 */  sdc1    $f20, 0x0018($sp)          
+/* 00A04 80ACED34 AFA50064 */  sw      $a1, 0x0064($sp)           
+/* 00A08 80ACED38 C6440068 */  lwc1    $f4, 0x0068($s2)           ## 00000068
+/* 00A0C 80ACED3C C6460074 */  lwc1    $f6, 0x0074($s2)           ## 00000074
+/* 00A10 80ACED40 265001B8 */  addiu   $s0, $s2, 0x01B8           ## $s0 = 000001B8
+/* 00A14 80ACED44 02402025 */  or      $a0, $s2, $zero            ## $a0 = 00000000
+/* 00A18 80ACED48 46062200 */  add.s   $f8, $f4, $f6              
+/* 00A1C 80ACED4C 0C02DA6B */  jal     func_800B69AC              
+/* 00A20 80ACED50 E6480068 */  swc1    $f8, 0x0068($s2)           ## 00000068
+/* 00A24 80ACED54 3C01C3FA */  lui     $at, 0xC3FA                ## $at = C3FA0000
+/* 00A28 80ACED58 44810000 */  mtc1    $at, $f0                   ## $f0 = -500.00
+/* 00A2C 80ACED5C C64A0028 */  lwc1    $f10, 0x0028($s2)          ## 00000028
+/* 00A30 80ACED60 24130006 */  addiu   $s3, $zero, 0x0006         ## $s3 = 00000006
+/* 00A34 80ACED64 3C013F00 */  lui     $at, 0x3F00                ## $at = 3F000000
+/* 00A38 80ACED68 4600503C */  c.lt.s  $f10, $f0                  
+/* 00A3C 80ACED6C 00000000 */  nop
+/* 00A40 80ACED70 45020003 */  bc1fl   .L80ACED80                 
+/* 00A44 80ACED74 86420302 */  lh      $v0, 0x0302($s2)           ## 00000302
+/* 00A48 80ACED78 E6400028 */  swc1    $f0, 0x0028($s2)           ## 00000028
+/* 00A4C 80ACED7C 86420302 */  lh      $v0, 0x0302($s2)           ## 00000302
+.L80ACED80:
+/* 00A50 80ACED80 24150001 */  addiu   $s5, $zero, 0x0001         ## $s5 = 00000001
+/* 00A54 80ACED84 16A20003 */  bne     $s5, $v0, .L80ACED94       
+/* 00A58 80ACED88 00000000 */  nop
+/* 00A5C 80ACED8C 10000001 */  beq     $zero, $zero, .L80ACED94   
+/* 00A60 80ACED90 24130002 */  addiu   $s3, $zero, 0x0002         ## $s3 = 00000002
+.L80ACED94:
+/* 00A64 80ACED94 1A600064 */  blez    $s3, .L80ACEF28            
+/* 00A68 80ACED98 00008825 */  or      $s1, $zero, $zero          ## $s1 = 00000000
+/* 00A6C 80ACED9C 4481E000 */  mtc1    $at, $f28                  ## $f28 = 0.50
+/* 00A70 80ACEDA0 3C014120 */  lui     $at, 0x4120                ## $at = 41200000
+/* 00A74 80ACEDA4 4481C000 */  mtc1    $at, $f24                  ## $f24 = 10.00
+/* 00A78 80ACEDA8 3C014000 */  lui     $at, 0x4000                ## $at = 40000000
+/* 00A7C 80ACEDAC 4481B000 */  mtc1    $at, $f22                  ## $f22 = 2.00
+/* 00A80 80ACEDB0 3C013FC0 */  lui     $at, 0x3FC0                ## $at = 3FC00000
+/* 00A84 80ACEDB4 4481A000 */  mtc1    $at, $f20                  ## $f20 = 1.50
+/* 00A88 80ACEDB8 4480D000 */  mtc1    $zero, $f26                ## $f26 = 0.00
+/* 00A8C 80ACEDBC 24140002 */  addiu   $s4, $zero, 0x0002         ## $s4 = 00000002
+.L80ACEDC0:
+/* 00A90 80ACEDC0 C602000C */  lwc1    $f2, 0x000C($s0)           ## 000001C4
+/* 00A94 80ACEDC4 C6100000 */  lwc1    $f16, 0x0000($s0)          ## 000001B8
+/* 00A98 80ACEDC8 C6000010 */  lwc1    $f0, 0x0010($s0)           ## 000001C8
+/* 00A9C 80ACEDCC C6040004 */  lwc1    $f4, 0x0004($s0)           ## 000001BC
+/* 00AA0 80ACEDD0 C60C0014 */  lwc1    $f12, 0x0014($s0)          ## 000001CC
+/* 00AA4 80ACEDD4 C6080008 */  lwc1    $f8, 0x0008($s0)           ## 000001C0
+/* 00AA8 80ACEDD8 46028480 */  add.s   $f18, $f16, $f2            
+/* 00AAC 80ACEDDC C6100018 */  lwc1    $f16, 0x0018($s0)          ## 000001D0
+/* 00AB0 80ACEDE0 860E0024 */  lh      $t6, 0x0024($s0)           ## 000001DC
+/* 00AB4 80ACEDE4 46002180 */  add.s   $f6, $f4, $f0              
+/* 00AB8 80ACEDE8 C604001C */  lwc1    $f4, 0x001C($s0)           ## 000001D4
+/* 00ABC 80ACEDEC E6120000 */  swc1    $f18, 0x0000($s0)          ## 000001B8
+/* 00AC0 80ACEDF0 460C4280 */  add.s   $f10, $f8, $f12            
+/* 00AC4 80ACEDF4 C6080020 */  lwc1    $f8, 0x0020($s0)           ## 000001D8
+/* 00AC8 80ACEDF8 E6060004 */  swc1    $f6, 0x0004($s0)           ## 000001BC
+/* 00ACC 80ACEDFC 46101480 */  add.s   $f18, $f2, $f16            
+/* 00AD0 80ACEE00 E60A0008 */  swc1    $f10, 0x0008($s0)          ## 000001C0
+/* 00AD4 80ACEE04 860F002A */  lh      $t7, 0x002A($s0)           ## 000001E2
+/* 00AD8 80ACEE08 46040180 */  add.s   $f6, $f0, $f4              
+/* 00ADC 80ACEE0C 86190026 */  lh      $t9, 0x0026($s0)           ## 000001DE
+/* 00AE0 80ACEE10 8608002C */  lh      $t0, 0x002C($s0)           ## 000001E4
+/* 00AE4 80ACEE14 46086280 */  add.s   $f10, $f12, $f8            
+/* 00AE8 80ACEE18 860A0028 */  lh      $t2, 0x0028($s0)           ## 000001E0
+/* 00AEC 80ACEE1C 860B002E */  lh      $t3, 0x002E($s0)           ## 000001E6
+/* 00AF0 80ACEE20 01CFC021 */  addu    $t8, $t6, $t7              
+/* 00AF4 80ACEE24 03284821 */  addu    $t1, $t9, $t0              
+/* 00AF8 80ACEE28 014B6021 */  addu    $t4, $t2, $t3              
+/* 00AFC 80ACEE2C E612000C */  swc1    $f18, 0x000C($s0)          ## 000001C4
+/* 00B00 80ACEE30 E6060010 */  swc1    $f6, 0x0010($s0)           ## 000001C8
+/* 00B04 80ACEE34 E60A0014 */  swc1    $f10, 0x0014($s0)          ## 000001CC
+/* 00B08 80ACEE38 A6180024 */  sh      $t8, 0x0024($s0)           ## 000001DC
+/* 00B0C 80ACEE3C A6090026 */  sh      $t1, 0x0026($s0)           ## 000001DE
+/* 00B10 80ACEE40 A60C0028 */  sh      $t4, 0x0028($s0)           ## 000001E0
+/* 00B14 80ACEE44 864D0302 */  lh      $t5, 0x0302($s2)           ## 00000302
+/* 00B18 80ACEE48 568D0034 */  bnel    $s4, $t5, .L80ACEF1C       
+/* 00B1C 80ACEE4C 26310001 */  addiu   $s1, $s1, 0x0001           ## $s1 = 00000001
+/* 00B20 80ACEE50 860E0030 */  lh      $t6, 0x0030($s0)           ## 000001E8
+/* 00B24 80ACEE54 56AE0031 */  bnel    $s5, $t6, .L80ACEF1C       
+/* 00B28 80ACEE58 26310001 */  addiu   $s1, $s1, 0x0001           ## $s1 = 00000002
+/* 00B2C 80ACEE5C C6520088 */  lwc1    $f18, 0x0088($s2)          ## 00000088
+/* 00B30 80ACEE60 C6100004 */  lwc1    $f16, 0x0004($s0)          ## 000001BC
+/* 00B34 80ACEE64 46189100 */  add.s   $f4, $f18, $f24            
+/* 00B38 80ACEE68 4604803C */  c.lt.s  $f16, $f4                  
+/* 00B3C 80ACEE6C 00000000 */  nop
+/* 00B40 80ACEE70 4502002A */  bc1fl   .L80ACEF1C                 
+/* 00B44 80ACEE74 26310001 */  addiu   $s1, $s1, 0x0001           ## $s1 = 00000003
+/* 00B48 80ACEE78 C6000010 */  lwc1    $f0, 0x0010($s0)           ## 000001C8
+/* 00B4C 80ACEE7C 461A003C */  c.lt.s  $f0, $f26                  
+/* 00B50 80ACEE80 00000000 */  nop
+/* 00B54 80ACEE84 45020005 */  bc1fl   .L80ACEE9C                 
+/* 00B58 80ACEE88 E6000010 */  swc1    $f0, 0x0010($s0)           ## 000001C8
+/* 00B5C 80ACEE8C 46000187 */  neg.s   $f6, $f0                   
+/* 00B60 80ACEE90 10000002 */  beq     $zero, $zero, .L80ACEE9C   
+/* 00B64 80ACEE94 E6060010 */  swc1    $f6, 0x0010($s0)           ## 000001C8
+/* 00B68 80ACEE98 E6000010 */  swc1    $f0, 0x0010($s0)           ## 000001C8
+.L80ACEE9C:
+/* 00B6C 80ACEE9C C6080010 */  lwc1    $f8, 0x0010($s0)           ## 000001C8
+/* 00B70 80ACEEA0 461C4282 */  mul.s   $f10, $f8, $f28            
+/* 00B74 80ACEEA4 0C021C0C */  jal     func_80087030              
+/* 00B78 80ACEEA8 E60A0010 */  swc1    $f10, 0x0010($s0)          ## 000001C8
+/* 00B7C 80ACEEAC 46140402 */  mul.s   $f16, $f0, $f20            
+/* 00B80 80ACEEB0 C612000C */  lwc1    $f18, 0x000C($s0)          ## 000001C4
+/* 00B84 80ACEEB4 46168100 */  add.s   $f4, $f16, $f22            
+/* 00B88 80ACEEB8 46049182 */  mul.s   $f6, $f18, $f4             
+/* 00B8C 80ACEEBC 0C021C0C */  jal     func_80087030              
+/* 00B90 80ACEEC0 E606000C */  swc1    $f6, 0x000C($s0)           ## 000001C4
+/* 00B94 80ACEEC4 46140282 */  mul.s   $f10, $f0, $f20            
+/* 00B98 80ACEEC8 C6080014 */  lwc1    $f8, 0x0014($s0)           ## 000001CC
+/* 00B9C 80ACEECC 46165400 */  add.s   $f16, $f10, $f22           
+/* 00BA0 80ACEED0 46104482 */  mul.s   $f18, $f8, $f16            
+/* 00BA4 80ACEED4 0C021BE8 */  jal     func_80086FA0              
+/* 00BA8 80ACEED8 E6120014 */  swc1    $f18, 0x0014($s0)          ## 000001CC
+/* 00BAC 80ACEEDC 00027C00 */  sll     $t7, $v0, 16               
+/* 00BB0 80ACEEE0 000FC403 */  sra     $t8, $t7, 16               
+/* 00BB4 80ACEEE4 0018C943 */  sra     $t9, $t8,  5               
+/* 00BB8 80ACEEE8 0C021BE8 */  jal     func_80086FA0              
+/* 00BBC 80ACEEEC A619002A */  sh      $t9, 0x002A($s0)           ## 000001E2
+/* 00BC0 80ACEEF0 00024400 */  sll     $t0, $v0, 16               
+/* 00BC4 80ACEEF4 00084C03 */  sra     $t1, $t0, 16               
+/* 00BC8 80ACEEF8 00095143 */  sra     $t2, $t1,  5               
+/* 00BCC 80ACEEFC 0C021BE8 */  jal     func_80086FA0              
+/* 00BD0 80ACEF00 A60A002C */  sh      $t2, 0x002C($s0)           ## 000001E4
+/* 00BD4 80ACEF04 00025C00 */  sll     $t3, $v0, 16               
+/* 00BD8 80ACEF08 000B6403 */  sra     $t4, $t3, 16               
+/* 00BDC 80ACEF0C 000C6943 */  sra     $t5, $t4,  5               
+/* 00BE0 80ACEF10 A60D002E */  sh      $t5, 0x002E($s0)           ## 000001E6
+/* 00BE4 80ACEF14 A6000030 */  sh      $zero, 0x0030($s0)         ## 000001E8
+/* 00BE8 80ACEF18 26310001 */  addiu   $s1, $s1, 0x0001           ## $s1 = 00000004
+.L80ACEF1C:
+/* 00BEC 80ACEF1C 1633FFA8 */  bne     $s1, $s3, .L80ACEDC0       
+/* 00BF0 80ACEF20 26100034 */  addiu   $s0, $s0, 0x0034           ## $s0 = 000001EC
+/* 00BF4 80ACEF24 86420302 */  lh      $v0, 0x0302($s2)           ## 00000302
+.L80ACEF28:
+/* 00BF8 80ACEF28 16A20010 */  bne     $s5, $v0, .L80ACEF6C       
+/* 00BFC 80ACEF2C 8FA40064 */  lw      $a0, 0x0064($sp)           
+/* 00C00 80ACEF30 3C014270 */  lui     $at, 0x4270                ## $at = 42700000
+/* 00C04 80ACEF34 44812000 */  mtc1    $at, $f4                   ## $f4 = 60.00
+/* 00C08 80ACEF38 240E0005 */  addiu   $t6, $zero, 0x0005         ## $t6 = 00000005
+/* 00C0C 80ACEF3C AFAE0014 */  sw      $t6, 0x0014($sp)           
+/* 00C10 80ACEF40 02402825 */  or      $a1, $s2, $zero            ## $a1 = 00000000
+/* 00C14 80ACEF44 3C064170 */  lui     $a2, 0x4170                ## $a2 = 41700000
+/* 00C18 80ACEF48 3C0741F0 */  lui     $a3, 0x41F0                ## $a3 = 41F00000
+/* 00C1C 80ACEF4C 0C02DE2E */  jal     func_800B78B8              
+/* 00C20 80ACEF50 E7A40010 */  swc1    $f4, 0x0010($sp)           
+/* 00C24 80ACEF54 964F0090 */  lhu     $t7, 0x0090($s2)           ## 00000090
+/* 00C28 80ACEF58 31F80001 */  andi    $t8, $t7, 0x0001           ## $t8 = 00000000
+/* 00C2C 80ACEF5C 53000004 */  beql    $t8, $zero, .L80ACEF70     
+/* 00C30 80ACEF60 86420304 */  lh      $v0, 0x0304($s2)           ## 00000304
+/* 00C34 80ACEF64 0C2B3ACB */  jal     func_80ACEB2C              
+/* 00C38 80ACEF68 02402025 */  or      $a0, $s2, $zero            ## $a0 = 00000000
+.L80ACEF6C:
+/* 00C3C 80ACEF6C 86420304 */  lh      $v0, 0x0304($s2)           ## 00000304
+.L80ACEF70:
+/* 00C40 80ACEF70 2841003C */  slti    $at, $v0, 0x003C           
+/* 00C44 80ACEF74 10200003 */  beq     $at, $zero, .L80ACEF84     
+/* 00C48 80ACEF78 24590001 */  addiu   $t9, $v0, 0x0001           ## $t9 = 00000001
+/* 00C4C 80ACEF7C 10000003 */  beq     $zero, $zero, .L80ACEF8C   
+/* 00C50 80ACEF80 A6590304 */  sh      $t9, 0x0304($s2)           ## 00000304
+.L80ACEF84:
+/* 00C54 80ACEF84 0C2B3BF1 */  jal     func_80ACEFC4              
+/* 00C58 80ACEF88 02402025 */  or      $a0, $s2, $zero            ## $a0 = 00000000
+.L80ACEF8C:
+/* 00C5C 80ACEF8C 8FBF005C */  lw      $ra, 0x005C($sp)           
+/* 00C60 80ACEF90 D7B40018 */  ldc1    $f20, 0x0018($sp)          
+/* 00C64 80ACEF94 D7B60020 */  ldc1    $f22, 0x0020($sp)          
+/* 00C68 80ACEF98 D7B80028 */  ldc1    $f24, 0x0028($sp)          
+/* 00C6C 80ACEF9C D7BA0030 */  ldc1    $f26, 0x0030($sp)          
+/* 00C70 80ACEFA0 D7BC0038 */  ldc1    $f28, 0x0038($sp)          
+/* 00C74 80ACEFA4 8FB00044 */  lw      $s0, 0x0044($sp)           
+/* 00C78 80ACEFA8 8FB10048 */  lw      $s1, 0x0048($sp)           
+/* 00C7C 80ACEFAC 8FB2004C */  lw      $s2, 0x004C($sp)           
+/* 00C80 80ACEFB0 8FB30050 */  lw      $s3, 0x0050($sp)           
+/* 00C84 80ACEFB4 8FB40054 */  lw      $s4, 0x0054($sp)           
+/* 00C88 80ACEFB8 8FB50058 */  lw      $s5, 0x0058($sp)           
+/* 00C8C 80ACEFBC 03E00008 */  jr      $ra                        
+/* 00C90 80ACEFC0 27BD0060 */  addiu   $sp, $sp, 0x0060           ## $sp = 00000000
+
+
+glabel func_80ACEFC4
+/* 00C94 80ACEFC4 3C0E80AD */  lui     $t6, %hi(func_80ACEFD8)    ## $t6 = 80AD0000
+/* 00C98 80ACEFC8 25CEEFD8 */  addiu   $t6, $t6, %lo(func_80ACEFD8) ## $t6 = 80ACEFD8
+/* 00C9C 80ACEFCC AC8E015C */  sw      $t6, 0x015C($a0)           ## 0000015C
+/* 00CA0 80ACEFD0 03E00008 */  jr      $ra                        
+/* 00CA4 80ACEFD4 00000000 */  nop
+
+
+glabel func_80ACEFD8
+/* 00CA8 80ACEFD8 27BDFFD0 */  addiu   $sp, $sp, 0xFFD0           ## $sp = FFFFFFD0
+/* 00CAC 80ACEFDC 3C0180AD */  lui     $at, %hi(D_80ACF6A0)       ## $at = 80AD0000
+/* 00CB0 80ACEFE0 C420F6A0 */  lwc1    $f0, %lo(D_80ACF6A0)($at)  
+/* 00CB4 80ACEFE4 AFBF001C */  sw      $ra, 0x001C($sp)           
+/* 00CB8 80ACEFE8 AFA40030 */  sw      $a0, 0x0030($sp)           
+/* 00CBC 80ACEFEC AFA50034 */  sw      $a1, 0x0034($sp)           
+/* 00CC0 80ACEFF0 8FA40030 */  lw      $a0, 0x0030($sp)           
+/* 00CC4 80ACEFF4 3C063DCC */  lui     $a2, 0x3DCC                ## $a2 = 3DCC0000
+/* 00CC8 80ACEFF8 44070000 */  mfc1    $a3, $f0                   
+/* 00CCC 80ACEFFC 24840058 */  addiu   $a0, $a0, 0x0058           ## $a0 = 00000058
+/* 00CD0 80ACF000 AFA40024 */  sw      $a0, 0x0024($sp)           
+/* 00CD4 80ACF004 34C6CCCD */  ori     $a2, $a2, 0xCCCD           ## $a2 = 3DCCCCCD
+/* 00CD8 80ACF008 24050000 */  addiu   $a1, $zero, 0x0000         ## $a1 = 00000000
+/* 00CDC 80ACF00C 0C03FF36 */  jal     func_800FFCD8              
+/* 00CE0 80ACF010 E7A00010 */  swc1    $f0, 0x0010($sp)           
+/* 00CE4 80ACF014 8FA40024 */  lw      $a0, 0x0024($sp)           
+/* 00CE8 80ACF018 44802000 */  mtc1    $zero, $f4                 ## $f4 = 0.00
+/* 00CEC 80ACF01C C4800000 */  lwc1    $f0, 0x0000($a0)           ## 00000000
+/* 00CF0 80ACF020 46002032 */  c.eq.s  $f4, $f0                   
+/* 00CF4 80ACF024 E4800008 */  swc1    $f0, 0x0008($a0)           ## 00000008
+/* 00CF8 80ACF028 E4800004 */  swc1    $f0, 0x0004($a0)           ## 00000004
+/* 00CFC 80ACF02C 45020004 */  bc1fl   .L80ACF040                 
+/* 00D00 80ACF030 8FBF001C */  lw      $ra, 0x001C($sp)           
+/* 00D04 80ACF034 0C02D9C3 */  jal     func_800B670C              
+/* 00D08 80ACF038 8FA40030 */  lw      $a0, 0x0030($sp)           
+/* 00D0C 80ACF03C 8FBF001C */  lw      $ra, 0x001C($sp)           
+.L80ACF040:
+/* 00D10 80ACF040 27BD0030 */  addiu   $sp, $sp, 0x0030           ## $sp = 00000000
+/* 00D14 80ACF044 03E00008 */  jr      $ra                        
+/* 00D18 80ACF048 00000000 */  nop
+
+
+glabel func_80ACF04C
+/* 00D1C 80ACF04C 27BDFFD8 */  addiu   $sp, $sp, 0xFFD8           ## $sp = FFFFFFD8
+/* 00D20 80ACF050 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00D24 80ACF054 AFA5002C */  sw      $a1, 0x002C($sp)           
+/* 00D28 80ACF058 00803825 */  or      $a3, $a0, $zero            ## $a3 = 00000000
+/* 00D2C 80ACF05C C4E40024 */  lwc1    $f4, 0x0024($a3)           ## 00000024
+/* 00D30 80ACF060 C4E80028 */  lwc1    $f8, 0x0028($a3)           ## 00000028
+/* 00D34 80ACF064 C4F0002C */  lwc1    $f16, 0x002C($a3)          ## 0000002C
+/* 00D38 80ACF068 4600218D */  trunc.w.s $f6, $f4                   
+/* 00D3C 80ACF06C 84EA0302 */  lh      $t2, 0x0302($a3)           ## 00000302
+/* 00D40 80ACF070 8CE30120 */  lw      $v1, 0x0120($a3)           ## 00000120
+/* 00D44 80ACF074 4600428D */  trunc.w.s $f10, $f8                  
+/* 00D48 80ACF078 440F3000 */  mfc1    $t7, $f6                   
+/* 00D4C 80ACF07C 24E60160 */  addiu   $a2, $a3, 0x0160           ## $a2 = 00000160
+/* 00D50 80ACF080 4600848D */  trunc.w.s $f18, $f16                 
+/* 00D54 80ACF084 44195000 */  mfc1    $t9, $f10                  
+/* 00D58 80ACF088 A4EF01A8 */  sh      $t7, 0x01A8($a3)           ## 000001A8
+/* 00D5C 80ACF08C 44099000 */  mfc1    $t1, $f18                  
+/* 00D60 80ACF090 A4F901AA */  sh      $t9, 0x01AA($a3)           ## 000001AA
+/* 00D64 80ACF094 15400031 */  bne     $t2, $zero, .L80ACF15C     
+/* 00D68 80ACF098 A4E901AC */  sh      $t1, 0x01AC($a3)           ## 000001AC
+/* 00D6C 80ACF09C 84640542 */  lh      $a0, 0x0542($v1)           ## 00000542
+/* 00D70 80ACF0A0 24010002 */  addiu   $at, $zero, 0x0002         ## $at = 00000002
+/* 00D74 80ACF0A4 14800005 */  bne     $a0, $zero, .L80ACF0BC     
+/* 00D78 80ACF0A8 00000000 */  nop
+/* 00D7C 80ACF0AC 90E20171 */  lbu     $v0, 0x0171($a3)           ## 00000171
+/* 00D80 80ACF0B0 304B0002 */  andi    $t3, $v0, 0x0002           ## $t3 = 00000000
+/* 00D84 80ACF0B4 55600009 */  bnel    $t3, $zero, .L80ACF0DC     
+/* 00D88 80ACF0B8 90EF0172 */  lbu     $t7, 0x0172($a3)           ## 00000172
+.L80ACF0BC:
+/* 00D8C 80ACF0BC 54810028 */  bnel    $a0, $at, .L80ACF160       
+/* 00D90 80ACF0C0 8FA4002C */  lw      $a0, 0x002C($sp)           
+/* 00D94 80ACF0C4 90EC0172 */  lbu     $t4, 0x0172($a3)           ## 00000172
+/* 00D98 80ACF0C8 318D0002 */  andi    $t5, $t4, 0x0002           ## $t5 = 00000000
+/* 00D9C 80ACF0CC 51A00024 */  beql    $t5, $zero, .L80ACF160     
+/* 00DA0 80ACF0D0 8FA4002C */  lw      $a0, 0x002C($sp)           
+/* 00DA4 80ACF0D4 90E20171 */  lbu     $v0, 0x0171($a3)           ## 00000171
+/* 00DA8 80ACF0D8 90EF0172 */  lbu     $t7, 0x0172($a3)           ## 00000172
+.L80ACF0DC:
+/* 00DAC 80ACF0DC 304EFFFD */  andi    $t6, $v0, 0xFFFD           ## $t6 = 00000000
+/* 00DB0 80ACF0E0 A0EE0171 */  sb      $t6, 0x0171($a3)           ## 00000171
+/* 00DB4 80ACF0E4 31F8FFFD */  andi    $t8, $t7, 0xFFFD           ## $t8 = 00000000
+/* 00DB8 80ACF0E8 A0F80172 */  sb      $t8, 0x0172($a3)           ## 00000172
+/* 00DBC 80ACF0EC AFA70028 */  sw      $a3, 0x0028($sp)           
+/* 00DC0 80ACF0F0 AFA30024 */  sw      $v1, 0x0024($sp)           
+/* 00DC4 80ACF0F4 00E02025 */  or      $a0, $a3, $zero            ## $a0 = 00000000
+/* 00DC8 80ACF0F8 0C02E3B2 */  jal     func_800B8EC8              
+/* 00DCC 80ACF0FC 24054807 */  addiu   $a1, $zero, 0x4807         ## $a1 = 00004807
+/* 00DD0 80ACF100 8FA30024 */  lw      $v1, 0x0024($sp)           
+/* 00DD4 80ACF104 8FA70028 */  lw      $a3, 0x0028($sp)           
+/* 00DD8 80ACF108 24010002 */  addiu   $at, $zero, 0x0002         ## $at = 00000002
+/* 00DDC 80ACF10C 84790548 */  lh      $t9, 0x0548($v1)           ## 00000548
+/* 00DE0 80ACF110 84690542 */  lh      $t1, 0x0542($v1)           ## 00000542
+/* 00DE4 80ACF114 3C0A801F */  lui     $t2, 0x801F                ## $t2 = 801F0000
+/* 00DE8 80ACF118 27280001 */  addiu   $t0, $t9, 0x0001           ## $t0 = 00000001
+/* 00DEC 80ACF11C 11210005 */  beq     $t1, $at, .L80ACF134       
+/* 00DF0 80ACF120 A4680548 */  sh      $t0, 0x0548($v1)           ## 00000548
+/* 00DF4 80ACF124 914AF690 */  lbu     $t2, -0x0970($t2)          ## 801EF690
+/* 00DF8 80ACF128 24010003 */  addiu   $at, $zero, 0x0003         ## $at = 00000003
+/* 00DFC 80ACF12C 00E02025 */  or      $a0, $a3, $zero            ## $a0 = 00000000
+/* 00E00 80ACF130 15410006 */  bne     $t2, $at, .L80ACF14C       
+.L80ACF134:
+/* 00E04 80ACF134 240B0001 */  addiu   $t3, $zero, 0x0001         ## $t3 = 00000001
+/* 00E08 80ACF138 A46B0546 */  sh      $t3, 0x0546($v1)           ## 00000546
+/* 00E0C 80ACF13C 0C2B39A0 */  jal     func_80ACE680              
+/* 00E10 80ACF140 00E02025 */  or      $a0, $a3, $zero            ## $a0 = 00000000
+/* 00E14 80ACF144 10000011 */  beq     $zero, $zero, .L80ACF18C   
+/* 00E18 80ACF148 24020001 */  addiu   $v0, $zero, 0x0001         ## $v0 = 00000001
+.L80ACF14C:
+/* 00E1C 80ACF14C 0C2B3A14 */  jal     func_80ACE850              
+/* 00E20 80ACF150 8FA5002C */  lw      $a1, 0x002C($sp)           
+/* 00E24 80ACF154 1000000D */  beq     $zero, $zero, .L80ACF18C   
+/* 00E28 80ACF158 24020001 */  addiu   $v0, $zero, 0x0001         ## $v0 = 00000001
+.L80ACF15C:
+/* 00E2C 80ACF15C 8FA4002C */  lw      $a0, 0x002C($sp)           
+.L80ACF160:
+/* 00E30 80ACF160 3C010001 */  lui     $at, 0x0001                ## $at = 00010000
+/* 00E34 80ACF164 34218884 */  ori     $at, $at, 0x8884           ## $at = 00018884
+/* 00E38 80ACF168 00812821 */  addu    $a1, $a0, $at              
+/* 00E3C 80ACF16C AFA50020 */  sw      $a1, 0x0020($sp)           
+/* 00E40 80ACF170 0C0389D0 */  jal     func_800E2740              
+/* 00E44 80ACF174 AFA6001C */  sw      $a2, 0x001C($sp)           
+/* 00E48 80ACF178 8FA50020 */  lw      $a1, 0x0020($sp)           
+/* 00E4C 80ACF17C 8FA6001C */  lw      $a2, 0x001C($sp)           
+/* 00E50 80ACF180 0C038A4A */  jal     func_800E2928              
+/* 00E54 80ACF184 8FA4002C */  lw      $a0, 0x002C($sp)           
+/* 00E58 80ACF188 00001025 */  or      $v0, $zero, $zero          ## $v0 = 00000000
+.L80ACF18C:
+/* 00E5C 80ACF18C 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00E60 80ACF190 27BD0028 */  addiu   $sp, $sp, 0x0028           ## $sp = 00000000
+/* 00E64 80ACF194 03E00008 */  jr      $ra                        
+/* 00E68 80ACF198 00000000 */  nop
+
+
+glabel func_80ACF19C
+/* 00E6C 80ACF19C 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00E70 80ACF1A0 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00E74 80ACF1A4 AFA5001C */  sw      $a1, 0x001C($sp)           
+/* 00E78 80ACF1A8 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 00E7C 80ACF1AC 8C99015C */  lw      $t9, 0x015C($a0)           ## 0000015C
+/* 00E80 80ACF1B0 8FA5001C */  lw      $a1, 0x001C($sp)           
+/* 00E84 80ACF1B4 0320F809 */  jalr    $ra, $t9                   
+/* 00E88 80ACF1B8 00000000 */  nop
+/* 00E8C 80ACF1BC 8FA40018 */  lw      $a0, 0x0018($sp)           
+/* 00E90 80ACF1C0 0C2B3C13 */  jal     func_80ACF04C              
+/* 00E94 80ACF1C4 8FA5001C */  lw      $a1, 0x001C($sp)           
+/* 00E98 80ACF1C8 8FA40018 */  lw      $a0, 0x0018($sp)           
+/* 00E9C 80ACF1CC 24010001 */  addiu   $at, $zero, 0x0001         ## $at = 00000001
+/* 00EA0 80ACF1D0 848E030A */  lh      $t6, 0x030A($a0)           ## 0000030A
+/* 00EA4 80ACF1D4 55C10004 */  bnel    $t6, $at, .L80ACF1E8       
+/* 00EA8 80ACF1D8 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 00EAC 80ACF1DC 0C2B3BF1 */  jal     func_80ACEFC4              
+/* 00EB0 80ACF1E0 00000000 */  nop
+/* 00EB4 80ACF1E4 8FBF0014 */  lw      $ra, 0x0014($sp)           
+.L80ACF1E8:
+/* 00EB8 80ACF1E8 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00EBC 80ACF1EC 03E00008 */  jr      $ra                        
+/* 00EC0 80ACF1F0 00000000 */  nop
+
+
+glabel func_80ACF1F4
+/* 00EC4 80ACF1F4 27BDFFB8 */  addiu   $sp, $sp, 0xFFB8           ## $sp = FFFFFFB8
+/* 00EC8 80ACF1F8 AFBF0044 */  sw      $ra, 0x0044($sp)           
+/* 00ECC 80ACF1FC AFBE0040 */  sw      $s8, 0x0040($sp)           
+/* 00ED0 80ACF200 AFB7003C */  sw      $s7, 0x003C($sp)           
+/* 00ED4 80ACF204 AFB60038 */  sw      $s6, 0x0038($sp)           
+/* 00ED8 80ACF208 AFB50034 */  sw      $s5, 0x0034($sp)           
+/* 00EDC 80ACF20C AFB40030 */  sw      $s4, 0x0030($sp)           
+/* 00EE0 80ACF210 AFB3002C */  sw      $s3, 0x002C($sp)           
+/* 00EE4 80ACF214 AFB20028 */  sw      $s2, 0x0028($sp)           
+/* 00EE8 80ACF218 AFB10024 */  sw      $s1, 0x0024($sp)           
+/* 00EEC 80ACF21C AFB00020 */  sw      $s0, 0x0020($sp)           
+/* 00EF0 80ACF220 F7B40018 */  sdc1    $f20, 0x0018($sp)          
+/* 00EF4 80ACF224 AFA5004C */  sw      $a1, 0x004C($sp)           
+/* 00EF8 80ACF228 00803025 */  or      $a2, $a0, $zero            ## $a2 = 00000000
+/* 00EFC 80ACF22C 24D301B8 */  addiu   $s3, $a2, 0x01B8           ## $s3 = 000001B8
+/* 00F00 80ACF230 84D40308 */  lh      $s4, 0x0308($a2)           ## 00000308
+/* 00F04 80ACF234 8FAE004C */  lw      $t6, 0x004C($sp)           
+/* 00F08 80ACF238 8DC40000 */  lw      $a0, 0x0000($t6)           ## 00000000
+/* 00F0C 80ACF23C 0C04B0A3 */  jal     func_8012C28C              
+/* 00F10 80ACF240 00808025 */  or      $s0, $a0, $zero            ## $s0 = 00000000
+/* 00F14 80ACF244 3C0180AD */  lui     $at, %hi(D_80ACF6A4)       ## $at = 80AD0000
+/* 00F18 80ACF248 3C17DA38 */  lui     $s7, 0xDA38                ## $s7 = DA380000
+/* 00F1C 80ACF24C 3C1680AD */  lui     $s6, %hi(D_80ACF63C)       ## $s6 = 80AD0000
+/* 00F20 80ACF250 26D6F63C */  addiu   $s6, $s6, %lo(D_80ACF63C)  ## $s6 = 80ACF63C
+/* 00F24 80ACF254 36F70003 */  ori     $s7, $s7, 0x0003           ## $s7 = DA380003
+/* 00F28 80ACF258 C434F6A4 */  lwc1    $f20, %lo(D_80ACF6A4)($at) 
+/* 00F2C 80ACF25C 0000A825 */  or      $s5, $zero, $zero          ## $s5 = 00000000
+/* 00F30 80ACF260 241E0005 */  addiu   $s8, $zero, 0x0005         ## $s8 = 00000005
+/* 00F34 80ACF264 3C12DE00 */  lui     $s2, 0xDE00                ## $s2 = DE000000
+.L80ACF268:
+/* 00F38 80ACF268 0C060067 */  jal     func_8018019C              
+/* 00F3C 80ACF26C 00000000 */  nop
+/* 00F40 80ACF270 C66C0000 */  lwc1    $f12, 0x0000($s3)          ## 000001B8
+/* 00F44 80ACF274 C66E0004 */  lwc1    $f14, 0x0004($s3)          ## 000001BC
+/* 00F48 80ACF278 8E660008 */  lw      $a2, 0x0008($s3)           ## 000001C0
+/* 00F4C 80ACF27C 0C060594 */  jal     func_80181650              
+/* 00F50 80ACF280 26670024 */  addiu   $a3, $s3, 0x0024           ## $a3 = 000001DC
+/* 00F54 80ACF284 4406A000 */  mfc1    $a2, $f20                  
+/* 00F58 80ACF288 4600A306 */  mov.s   $f12, $f20                 
+/* 00F5C 80ACF28C 4600A386 */  mov.s   $f14, $f20                 
+/* 00F60 80ACF290 0C0600E7 */  jal     func_8018039C              
+/* 00F64 80ACF294 24070001 */  addiu   $a3, $zero, 0x0001         ## $a3 = 00000001
+/* 00F68 80ACF298 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 00F6C 80ACF29C 244F0008 */  addiu   $t7, $v0, 0x0008           ## $t7 = 00000008
+/* 00F70 80ACF2A0 AE0F02B0 */  sw      $t7, 0x02B0($s0)           ## 000002B0
+/* 00F74 80ACF2A4 AC570000 */  sw      $s7, 0x0000($v0)           ## 00000000
+/* 00F78 80ACF2A8 8FB8004C */  lw      $t8, 0x004C($sp)           
+/* 00F7C 80ACF2AC 00408825 */  or      $s1, $v0, $zero            ## $s1 = 00000000
+/* 00F80 80ACF2B0 0C060690 */  jal     func_80181A40              
+/* 00F84 80ACF2B4 8F040000 */  lw      $a0, 0x0000($t8)           ## 00000000
+/* 00F88 80ACF2B8 AE220004 */  sw      $v0, 0x0004($s1)           ## 00000004
+/* 00F8C 80ACF2BC 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 00F90 80ACF2C0 00144080 */  sll     $t0, $s4,  2               
+/* 00F94 80ACF2C4 02C82021 */  addu    $a0, $s6, $t0              
+/* 00F98 80ACF2C8 24590008 */  addiu   $t9, $v0, 0x0008           ## $t9 = 00000008
+/* 00F9C 80ACF2CC AE1902B0 */  sw      $t9, 0x02B0($s0)           ## 000002B0
+/* 00FA0 80ACF2D0 AC520000 */  sw      $s2, 0x0000($v0)           ## 00000000
+/* 00FA4 80ACF2D4 8C890000 */  lw      $t1, 0x0000($a0)           ## 00000000
+/* 00FA8 80ACF2D8 AC490004 */  sw      $t1, 0x0004($v0)           ## 00000004
+/* 00FAC 80ACF2DC 52800006 */  beql    $s4, $zero, .L80ACF2F8     
+/* 00FB0 80ACF2E0 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 00FB4 80ACF2E4 529E0012 */  beql    $s4, $s8, .L80ACF330       
+/* 00FB8 80ACF2E8 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 00FBC 80ACF2EC 1000001E */  beq     $zero, $zero, .L80ACF368   
+/* 00FC0 80ACF2F0 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 00FC4 80ACF2F4 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+.L80ACF2F8:
+/* 00FC8 80ACF2F8 244A0008 */  addiu   $t2, $v0, 0x0008           ## $t2 = 00000008
+/* 00FCC 80ACF2FC AE0A02B0 */  sw      $t2, 0x02B0($s0)           ## 000002B0
+/* 00FD0 80ACF300 AC520000 */  sw      $s2, 0x0000($v0)           ## 00000000
+/* 00FD4 80ACF304 8ECB0014 */  lw      $t3, 0x0014($s6)           ## 80ACF650
+/* 00FD8 80ACF308 AC4B0004 */  sw      $t3, 0x0004($v0)           ## 00000004
+/* 00FDC 80ACF30C 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 00FE0 80ACF310 244C0008 */  addiu   $t4, $v0, 0x0008           ## $t4 = 00000008
+/* 00FE4 80ACF314 AE0C02B0 */  sw      $t4, 0x02B0($s0)           ## 000002B0
+/* 00FE8 80ACF318 AC520000 */  sw      $s2, 0x0000($v0)           ## 00000000
+/* 00FEC 80ACF31C 8C8D0004 */  lw      $t5, 0x0004($a0)           ## 00000004
+/* 00FF0 80ACF320 AC4D0004 */  sw      $t5, 0x0004($v0)           ## 00000004
+/* 00FF4 80ACF324 1000001B */  beq     $zero, $zero, .L80ACF394   
+/* 00FF8 80ACF328 00000000 */  nop
+/* 00FFC 80ACF32C 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+.L80ACF330:
+/* 01000 80ACF330 244E0008 */  addiu   $t6, $v0, 0x0008           ## $t6 = 00000008
+/* 01004 80ACF334 AE0E02B0 */  sw      $t6, 0x02B0($s0)           ## 000002B0
+/* 01008 80ACF338 AC520000 */  sw      $s2, 0x0000($v0)           ## 00000000
+/* 0100C 80ACF33C 8C8FFFFC */  lw      $t7, -0x0004($a0)          ## FFFFFFFC
+/* 01010 80ACF340 AC4F0004 */  sw      $t7, 0x0004($v0)           ## 00000004
+/* 01014 80ACF344 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 01018 80ACF348 24580008 */  addiu   $t8, $v0, 0x0008           ## $t8 = 00000008
+/* 0101C 80ACF34C AE1802B0 */  sw      $t8, 0x02B0($s0)           ## 000002B0
+/* 01020 80ACF350 AC520000 */  sw      $s2, 0x0000($v0)           ## 00000000
+/* 01024 80ACF354 8ED90000 */  lw      $t9, 0x0000($s6)           ## 80ACF63C
+/* 01028 80ACF358 AC590004 */  sw      $t9, 0x0004($v0)           ## 00000004
+/* 0102C 80ACF35C 1000000D */  beq     $zero, $zero, .L80ACF394   
+/* 01030 80ACF360 00000000 */  nop
+/* 01034 80ACF364 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+.L80ACF368:
+/* 01038 80ACF368 24480008 */  addiu   $t0, $v0, 0x0008           ## $t0 = 00000008
+/* 0103C 80ACF36C AE0802B0 */  sw      $t0, 0x02B0($s0)           ## 000002B0
+/* 01040 80ACF370 AC520000 */  sw      $s2, 0x0000($v0)           ## 00000000
+/* 01044 80ACF374 8C89FFFC */  lw      $t1, -0x0004($a0)          ## FFFFFFFC
+/* 01048 80ACF378 AC490004 */  sw      $t1, 0x0004($v0)           ## 00000004
+/* 0104C 80ACF37C 8E0202B0 */  lw      $v0, 0x02B0($s0)           ## 000002B0
+/* 01050 80ACF380 244A0008 */  addiu   $t2, $v0, 0x0008           ## $t2 = 00000008
+/* 01054 80ACF384 AE0A02B0 */  sw      $t2, 0x02B0($s0)           ## 000002B0
+/* 01058 80ACF388 AC520000 */  sw      $s2, 0x0000($v0)           ## 00000000
+/* 0105C 80ACF38C 8C8B0004 */  lw      $t3, 0x0004($a0)           ## 00000004
+/* 01060 80ACF390 AC4B0004 */  sw      $t3, 0x0004($v0)           ## 00000004
+.L80ACF394:
+/* 01064 80ACF394 0C060073 */  jal     func_801801CC              
+/* 01068 80ACF398 00000000 */  nop
+/* 0106C 80ACF39C 26940003 */  addiu   $s4, $s4, 0x0003           ## $s4 = 00000003
+/* 01070 80ACF3A0 24010006 */  addiu   $at, $zero, 0x0006         ## $at = 00000006
+/* 01074 80ACF3A4 0281001A */  div     $zero, $s4, $at            
+/* 01078 80ACF3A8 24010002 */  addiu   $at, $zero, 0x0002         ## $at = 00000002
+/* 0107C 80ACF3AC 26B50001 */  addiu   $s5, $s5, 0x0001           ## $s5 = 00000001
+/* 01080 80ACF3B0 0000A010 */  mfhi    $s4                        
+/* 01084 80ACF3B4 26730034 */  addiu   $s3, $s3, 0x0034           ## $s3 = 000001EC
+/* 01088 80ACF3B8 16A1FFAB */  bne     $s5, $at, .L80ACF268       
+/* 0108C 80ACF3BC 00000000 */  nop
+/* 01090 80ACF3C0 8FBF0044 */  lw      $ra, 0x0044($sp)           
+/* 01094 80ACF3C4 D7B40018 */  ldc1    $f20, 0x0018($sp)          
+/* 01098 80ACF3C8 8FB00020 */  lw      $s0, 0x0020($sp)           
+/* 0109C 80ACF3CC 8FB10024 */  lw      $s1, 0x0024($sp)           
+/* 010A0 80ACF3D0 8FB20028 */  lw      $s2, 0x0028($sp)           
+/* 010A4 80ACF3D4 8FB3002C */  lw      $s3, 0x002C($sp)           
+/* 010A8 80ACF3D8 8FB40030 */  lw      $s4, 0x0030($sp)           
+/* 010AC 80ACF3DC 8FB50034 */  lw      $s5, 0x0034($sp)           
+/* 010B0 80ACF3E0 8FB60038 */  lw      $s6, 0x0038($sp)           
+/* 010B4 80ACF3E4 8FB7003C */  lw      $s7, 0x003C($sp)           
+/* 010B8 80ACF3E8 8FBE0040 */  lw      $s8, 0x0040($sp)           
+/* 010BC 80ACF3EC 03E00008 */  jr      $ra                        
+/* 010C0 80ACF3F0 27BD0048 */  addiu   $sp, $sp, 0x0048           ## $sp = 00000000
+
+
+glabel func_80ACF3F4
+/* 010C4 80ACF3F4 27BDFFC0 */  addiu   $sp, $sp, 0xFFC0           ## $sp = FFFFFFC0
+/* 010C8 80ACF3F8 AFB5002C */  sw      $s5, 0x002C($sp)           
+/* 010CC 80ACF3FC AFB1001C */  sw      $s1, 0x001C($sp)           
+/* 010D0 80ACF400 00808825 */  or      $s1, $a0, $zero            ## $s1 = 00000000
+/* 010D4 80ACF404 00A0A825 */  or      $s5, $a1, $zero            ## $s5 = 00000000
+/* 010D8 80ACF408 AFBF003C */  sw      $ra, 0x003C($sp)           
+/* 010DC 80ACF40C AFBE0038 */  sw      $s8, 0x0038($sp)           
+/* 010E0 80ACF410 AFB70034 */  sw      $s7, 0x0034($sp)           
+/* 010E4 80ACF414 AFB60030 */  sw      $s6, 0x0030($sp)           
+/* 010E8 80ACF418 AFB40028 */  sw      $s4, 0x0028($sp)           
+/* 010EC 80ACF41C AFB30024 */  sw      $s3, 0x0024($sp)           
+/* 010F0 80ACF420 AFB20020 */  sw      $s2, 0x0020($sp)           
+/* 010F4 80ACF424 AFB00018 */  sw      $s0, 0x0018($sp)           
+/* 010F8 80ACF428 263001B8 */  addiu   $s0, $s1, 0x01B8           ## $s0 = 000001B8
+/* 010FC 80ACF42C 8EA40000 */  lw      $a0, 0x0000($s5)           ## 00000000
+/* 01100 80ACF430 0C04B0A3 */  jal     func_8012C28C              
+/* 01104 80ACF434 00809025 */  or      $s2, $a0, $zero            ## $s2 = 00000000
+/* 01108 80ACF438 3C1380AD */  lui     $s3, %hi(D_80ACF63C)       ## $s3 = 80AD0000
+/* 0110C 80ACF43C 3C1E80AD */  lui     $s8, %hi(D_80ACF654)       ## $s8 = 80AD0000
+/* 01110 80ACF440 3C16DA38 */  lui     $s6, 0xDA38                ## $s6 = DA380000
+/* 01114 80ACF444 36D60003 */  ori     $s6, $s6, 0x0003           ## $s6 = DA380003
+/* 01118 80ACF448 27DEF654 */  addiu   $s8, $s8, %lo(D_80ACF654)  ## $s8 = 80ACF654
+/* 0111C 80ACF44C 2673F63C */  addiu   $s3, $s3, %lo(D_80ACF63C)  ## $s3 = 80ACF63C
+/* 01120 80ACF450 26340058 */  addiu   $s4, $s1, 0x0058           ## $s4 = 00000058
+/* 01124 80ACF454 3C17DE00 */  lui     $s7, 0xDE00                ## $s7 = DE000000
+.L80ACF458:
+/* 01128 80ACF458 0C060067 */  jal     func_8018019C              
+/* 0112C 80ACF45C 00000000 */  nop
+/* 01130 80ACF460 C60C0000 */  lwc1    $f12, 0x0000($s0)          ## 000001B8
+/* 01134 80ACF464 C60E0004 */  lwc1    $f14, 0x0004($s0)          ## 000001BC
+/* 01138 80ACF468 8E060008 */  lw      $a2, 0x0008($s0)           ## 000001C0
+/* 0113C 80ACF46C 0C060594 */  jal     func_80181650              
+/* 01140 80ACF470 26070024 */  addiu   $a3, $s0, 0x0024           ## $a3 = 000001DC
+/* 01144 80ACF474 C68C0000 */  lwc1    $f12, 0x0000($s4)          ## 00000058
+/* 01148 80ACF478 C68E0004 */  lwc1    $f14, 0x0004($s4)          ## 0000005C
+/* 0114C 80ACF47C 8E860008 */  lw      $a2, 0x0008($s4)           ## 00000060
+/* 01150 80ACF480 0C0600E7 */  jal     func_8018039C              
+/* 01154 80ACF484 24070001 */  addiu   $a3, $zero, 0x0001         ## $a3 = 00000001
+/* 01158 80ACF488 8E4202B0 */  lw      $v0, 0x02B0($s2)           ## 000002B0
+/* 0115C 80ACF48C 244E0008 */  addiu   $t6, $v0, 0x0008           ## $t6 = 00000008
+/* 01160 80ACF490 AE4E02B0 */  sw      $t6, 0x02B0($s2)           ## 000002B0
+/* 01164 80ACF494 AC560000 */  sw      $s6, 0x0000($v0)           ## 00000000
+/* 01168 80ACF498 8EA40000 */  lw      $a0, 0x0000($s5)           ## 00000000
+/* 0116C 80ACF49C 0C060690 */  jal     func_80181A40              
+/* 01170 80ACF4A0 00408825 */  or      $s1, $v0, $zero            ## $s1 = 00000000
+/* 01174 80ACF4A4 AE220004 */  sw      $v0, 0x0004($s1)           ## 00000004
+/* 01178 80ACF4A8 8E4202B0 */  lw      $v0, 0x02B0($s2)           ## 000002B0
+/* 0117C 80ACF4AC 244F0008 */  addiu   $t7, $v0, 0x0008           ## $t7 = 00000008
+/* 01180 80ACF4B0 AE4F02B0 */  sw      $t7, 0x02B0($s2)           ## 000002B0
+/* 01184 80ACF4B4 AC570000 */  sw      $s7, 0x0000($v0)           ## 00000000
+/* 01188 80ACF4B8 8E780000 */  lw      $t8, 0x0000($s3)           ## 80ACF63C
+/* 0118C 80ACF4BC AC580004 */  sw      $t8, 0x0004($v0)           ## 00000004
+/* 01190 80ACF4C0 0C060073 */  jal     func_801801CC              
+/* 01194 80ACF4C4 00000000 */  nop
+/* 01198 80ACF4C8 26730004 */  addiu   $s3, $s3, 0x0004           ## $s3 = 80ACF640
+/* 0119C 80ACF4CC 167EFFE2 */  bne     $s3, $s8, .L80ACF458       
+/* 011A0 80ACF4D0 26100034 */  addiu   $s0, $s0, 0x0034           ## $s0 = 000001EC
+/* 011A4 80ACF4D4 8FBF003C */  lw      $ra, 0x003C($sp)           
+/* 011A8 80ACF4D8 8FB00018 */  lw      $s0, 0x0018($sp)           
+/* 011AC 80ACF4DC 8FB1001C */  lw      $s1, 0x001C($sp)           
+/* 011B0 80ACF4E0 8FB20020 */  lw      $s2, 0x0020($sp)           
+/* 011B4 80ACF4E4 8FB30024 */  lw      $s3, 0x0024($sp)           
+/* 011B8 80ACF4E8 8FB40028 */  lw      $s4, 0x0028($sp)           
+/* 011BC 80ACF4EC 8FB5002C */  lw      $s5, 0x002C($sp)           
+/* 011C0 80ACF4F0 8FB60030 */  lw      $s6, 0x0030($sp)           
+/* 011C4 80ACF4F4 8FB70034 */  lw      $s7, 0x0034($sp)           
+/* 011C8 80ACF4F8 8FBE0038 */  lw      $s8, 0x0038($sp)           
+/* 011CC 80ACF4FC 03E00008 */  jr      $ra                        
+/* 011D0 80ACF500 27BD0040 */  addiu   $sp, $sp, 0x0040           ## $sp = 00000000
+
+
+glabel func_80ACF504
+/* 011D4 80ACF504 27BDFFD0 */  addiu   $sp, $sp, 0xFFD0           ## $sp = FFFFFFD0
+/* 011D8 80ACF508 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 011DC 80ACF50C AFA50034 */  sw      $a1, 0x0034($sp)           
+/* 011E0 80ACF510 00803025 */  or      $a2, $a0, $zero            ## $a2 = 00000000
+/* 011E4 80ACF514 8FAE0034 */  lw      $t6, 0x0034($sp)           
+/* 011E8 80ACF518 8DC40000 */  lw      $a0, 0x0000($t6)           ## 00000000
+/* 011EC 80ACF51C AFA60030 */  sw      $a2, 0x0030($sp)           
+/* 011F0 80ACF520 0C04B0A3 */  jal     func_8012C28C              
+/* 011F4 80ACF524 AFA40024 */  sw      $a0, 0x0024($sp)           
+/* 011F8 80ACF528 8FA60030 */  lw      $a2, 0x0030($sp)           
+/* 011FC 80ACF52C 8FA70024 */  lw      $a3, 0x0024($sp)           
+/* 01200 80ACF530 8CE202B0 */  lw      $v0, 0x02B0($a3)           ## 000002B0
+/* 01204 80ACF534 3C18DA38 */  lui     $t8, 0xDA38                ## $t8 = DA380000
+/* 01208 80ACF538 37180003 */  ori     $t8, $t8, 0x0003           ## $t8 = DA380003
+/* 0120C 80ACF53C 244F0008 */  addiu   $t7, $v0, 0x0008           ## $t7 = 00000008
+/* 01210 80ACF540 ACEF02B0 */  sw      $t7, 0x02B0($a3)           ## 000002B0
+/* 01214 80ACF544 AC580000 */  sw      $t8, 0x0000($v0)           ## 00000000
+/* 01218 80ACF548 8FB90034 */  lw      $t9, 0x0034($sp)           
+/* 0121C 80ACF54C 8F240000 */  lw      $a0, 0x0000($t9)           ## 00000000
+/* 01220 80ACF550 AFA70024 */  sw      $a3, 0x0024($sp)           
+/* 01224 80ACF554 AFA60030 */  sw      $a2, 0x0030($sp)           
+/* 01228 80ACF558 0C060690 */  jal     func_80181A40              
+/* 0122C 80ACF55C AFA2001C */  sw      $v0, 0x001C($sp)           
+/* 01230 80ACF560 8FA3001C */  lw      $v1, 0x001C($sp)           
+/* 01234 80ACF564 8FA60030 */  lw      $a2, 0x0030($sp)           
+/* 01238 80ACF568 8FA70024 */  lw      $a3, 0x0024($sp)           
+/* 0123C 80ACF56C AC620004 */  sw      $v0, 0x0004($v1)           ## 00000004
+/* 01240 80ACF570 84C20302 */  lh      $v0, 0x0302($a2)           ## 00000302
+/* 01244 80ACF574 24010003 */  addiu   $at, $zero, 0x0003         ## $at = 00000003
+/* 01248 80ACF578 3C09DE00 */  lui     $t1, 0xDE00                ## $t1 = DE000000
+/* 0124C 80ACF57C 50400004 */  beql    $v0, $zero, .L80ACF590     
+/* 01250 80ACF580 8CE202B0 */  lw      $v0, 0x02B0($a3)           ## 000002B0
+/* 01254 80ACF584 5441000B */  bnel    $v0, $at, .L80ACF5B4       
+/* 01258 80ACF588 24010001 */  addiu   $at, $zero, 0x0001         ## $at = 00000001
+/* 0125C 80ACF58C 8CE202B0 */  lw      $v0, 0x02B0($a3)           ## 000002B0
+.L80ACF590:
+/* 01260 80ACF590 3C0A0600 */  lui     $t2, 0x0600                ## $t2 = 06000000
+/* 01264 80ACF594 254A2720 */  addiu   $t2, $t2, 0x2720           ## $t2 = 06002720
+/* 01268 80ACF598 24480008 */  addiu   $t0, $v0, 0x0008           ## $t0 = 00000008
+/* 0126C 80ACF59C ACE802B0 */  sw      $t0, 0x02B0($a3)           ## 000002B0
+/* 01270 80ACF5A0 AC4A0004 */  sw      $t2, 0x0004($v0)           ## 00000004
+/* 01274 80ACF5A4 AC490000 */  sw      $t1, 0x0000($v0)           ## 00000000
+/* 01278 80ACF5A8 1000000C */  beq     $zero, $zero, .L80ACF5DC   
+/* 0127C 80ACF5AC 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 01280 80ACF5B0 24010001 */  addiu   $at, $zero, 0x0001         ## $at = 00000001
+.L80ACF5B4:
+/* 01284 80ACF5B4 14410006 */  bne     $v0, $at, .L80ACF5D0       
+/* 01288 80ACF5B8 00C02025 */  or      $a0, $a2, $zero            ## $a0 = 00000000
+/* 0128C 80ACF5BC 00C02025 */  or      $a0, $a2, $zero            ## $a0 = 00000000
+/* 01290 80ACF5C0 0C2B3C7D */  jal     func_80ACF1F4              
+/* 01294 80ACF5C4 8FA50034 */  lw      $a1, 0x0034($sp)           
+/* 01298 80ACF5C8 10000004 */  beq     $zero, $zero, .L80ACF5DC   
+/* 0129C 80ACF5CC 8FBF0014 */  lw      $ra, 0x0014($sp)           
+.L80ACF5D0:
+/* 012A0 80ACF5D0 0C2B3CFD */  jal     func_80ACF3F4              
+/* 012A4 80ACF5D4 8FA50034 */  lw      $a1, 0x0034($sp)           
+/* 012A8 80ACF5D8 8FBF0014 */  lw      $ra, 0x0014($sp)           
+.L80ACF5DC:
+/* 012AC 80ACF5DC 27BD0030 */  addiu   $sp, $sp, 0x0030           ## $sp = 00000000
+/* 012B0 80ACF5E0 03E00008 */  jr      $ra                        
+/* 012B4 80ACF5E4 00000000 */  nop
+/* 012B8 80ACF5E8 00000000 */  nop
+/* 012BC 80ACF5EC 00000000 */  nop
+
+.section .data
+
+D_80ACF5F0: .word 0x01B30100, 0x00000030, 0x01A10000, 0x0000030C
+.word func_80ACE330
+.word func_80ACE46C
+.word func_80ACF19C
+.word func_80ACF504
+D_80ACF610: .word \
+0x03000939, 0x10040000, 0x04000000, 0xF7CFFFFF, \
+0x00000000, 0xF7CFFFFF, 0x00000000, 0x00010100, \
+0x00000000, 0x00000000, 0x00C80064
+D_80ACF63C: .word \
+0x06001C80, 0x06001D68, 0x06001E50, 0x06001F38, \
+0x06002020, 0x06002108
+D_80ACF654: .word \
+0xBF800000, 0xBFDD70A4, 0x3F800000, 0xBFDD70A4, \
+0x40000000, 0x00000000, 0x3F800000, 0x3FDD70A4, \
+0xBF800000, 0x3FDD70A4, 0xC0000000, 0x00000000
+D_80ACF684: .word 0x00000000, 0x00000000, 0x00000000
+D_80ACF690: .word 0x00000000, 0x40000000, 0x00000000, 0x00000000
+
+.section .rodata
+
+D_80ACF6A0: .word 0x3BA3D70A
+D_80ACF6A4: .word 0x3DCCCCCD, 0x00000000, 0x00000000
+
+
+.section .rodata
+D_80ACF6B0:
+.incbin "baserom/En_Fu_Mato", 0x1380, 0x000000D0

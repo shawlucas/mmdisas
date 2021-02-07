@@ -1,0 +1,50 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_809CB200
+/* 00000 809CB200 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00004 809CB204 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00008 809CB208 03E00008 */  jr      $ra                        
+/* 0000C 809CB20C 00000000 */  nop
+
+
+glabel func_809CB210
+/* 00010 809CB210 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00014 809CB214 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00018 809CB218 03E00008 */  jr      $ra                        
+/* 0001C 809CB21C 00000000 */  nop
+
+
+glabel func_809CB220
+/* 00020 809CB220 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00024 809CB224 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00028 809CB228 03E00008 */  jr      $ra                        
+/* 0002C 809CB22C 00000000 */  nop
+
+
+glabel func_809CB230
+/* 00030 809CB230 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 00034 809CB234 AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00038 809CB238 03E00008 */  jr      $ra                        
+/* 0003C 809CB23C 00000000 */  nop
+
+.section .data
+
+D_809CB240: .word 0x01210400, 0x00000019, 0x00010000, 0x0000061C
+.word func_809CB200
+.word func_809CB210
+.word func_809CB220
+.word func_809CB230
+
+.section .rodata
+
+
+
+.section .rodata
+D_809CB260:
+.incbin "baserom/En_Boj_04", 0x60, 0x00000030

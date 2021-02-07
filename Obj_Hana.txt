@@ -1,0 +1,67 @@
+.include "macro.inc"
+
+# assembler directives
+.set noat      # allow manual use of $at
+.set noreorder # don't insert nops after branches
+.set gp=64     # allow use of 64-bit general purpose registers
+
+.section .text
+glabel func_8095FB10
+/* 00000 8095FB10 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 00004 8095FB14 AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00008 8095FB18 AFA5001C */  sw      $a1, 0x001C($sp)           
+/* 0000C 8095FB1C 3C058096 */  lui     $a1, %hi(D_8095FBB0)       ## $a1 = 80960000
+/* 00010 8095FB20 0C03FEB7 */  jal     func_800FFADC              
+/* 00014 8095FB24 24A5FBB0 */  addiu   $a1, $a1, %lo(D_8095FBB0)  ## $a1 = 8095FBB0
+/* 00018 8095FB28 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 0001C 8095FB2C 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00020 8095FB30 03E00008 */  jr      $ra                        
+/* 00024 8095FB34 00000000 */  nop
+
+
+glabel func_8095FB38
+/* 00028 8095FB38 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 0002C 8095FB3C AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00030 8095FB40 03E00008 */  jr      $ra                        
+/* 00034 8095FB44 00000000 */  nop
+
+
+glabel func_8095FB48
+/* 00038 8095FB48 AFA40000 */  sw      $a0, 0x0000($sp)           
+/* 0003C 8095FB4C AFA50004 */  sw      $a1, 0x0004($sp)           
+/* 00040 8095FB50 03E00008 */  jr      $ra                        
+/* 00044 8095FB54 00000000 */  nop
+
+
+glabel func_8095FB58
+/* 00048 8095FB58 27BDFFE8 */  addiu   $sp, $sp, 0xFFE8           ## $sp = FFFFFFE8
+/* 0004C 8095FB5C AFBF0014 */  sw      $ra, 0x0014($sp)           
+/* 00050 8095FB60 AFA40018 */  sw      $a0, 0x0018($sp)           
+/* 00054 8095FB64 00A03025 */  or      $a2, $a1, $zero            ## $a2 = 00000000
+/* 00058 8095FB68 3C050600 */  lui     $a1, 0x0600                ## $a1 = 06000000
+/* 0005C 8095FB6C 24A50500 */  addiu   $a1, $a1, 0x0500           ## $a1 = 06000500
+/* 00060 8095FB70 0C02F7F0 */  jal     func_800BDFC0              
+/* 00064 8095FB74 00C02025 */  or      $a0, $a2, $zero            ## $a0 = 00000000
+/* 00068 8095FB78 8FBF0014 */  lw      $ra, 0x0014($sp)           
+/* 0006C 8095FB7C 27BD0018 */  addiu   $sp, $sp, 0x0018           ## $sp = 00000000
+/* 00070 8095FB80 03E00008 */  jr      $ra                        
+/* 00074 8095FB84 00000000 */  nop
+/* 00078 8095FB88 00000000 */  nop
+/* 0007C 8095FB8C 00000000 */  nop
+
+.section .data
+
+D_8095FB90: .word 0x00B10600, 0x00000000, 0x01BA0000, 0x00000144
+.word func_8095FB10
+.word func_8095FB38
+.word func_8095FB48
+.word func_8095FB58
+D_8095FBB0: .word 0xC858000A, 0xB0FC0384, 0xB1000028, 0x31040028
+
+.section .rodata
+
+
+
+.section .rodata
+D_8095FBC0:
+.incbin "baserom/Obj_Hana", 0xB0, 0x00000030
